@@ -1,44 +1,44 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.0'
-gem 'sqlite3'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'rubocop', require: false
+gem "rails", "~> 5.1.0"
+gem "sqlite3"
+gem "puma", "~> 3.7"
+gem "sass-rails", "~> 5.0"
+gem "uglifier", ">= 1.3.0"
+gem "coffee-rails", "~> 4.2"
+gem "turbolinks", "~> 5"
+gem "jbuilder", "~> 2.5"
+gem "rubocop", require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-byebug'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'spring-commands-rspec'
+  gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-byebug"
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "guard"
+  gem "guard-rspec"
+  gem "spring-commands-rspec"
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "web-console", ">= 3.3.0"
+  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "spring"
+  gem "spring-watcher-listen", "~> 2.0.0"
 end
 
 group :test do
-  gem 'faker'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
+  gem "faker"
+  gem "capybara"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
