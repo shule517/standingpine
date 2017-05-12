@@ -19,6 +19,7 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-byebug"
   gem "rspec-rails"
+  gem "rubocop-rspec"
   gem "factory_girl_rails"
   gem "guard"
   gem "guard-rspec"
