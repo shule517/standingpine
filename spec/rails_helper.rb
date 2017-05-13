@@ -55,4 +55,16 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryGirl::Syntax::Methods
+
+  # paperclip file uploadテスト用
+  config.include ActionDispatch::TestProcess
+
+  # FactoryGirl内での呼び出し
+  FactoryGirl::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
+
+  # fixtureのパスを指定
+  # ファイルアップロードテストする際のアップするファイルパスをfixtures以下から省略して指定可能
+  config.fixture_path = "#{Rails.root}/spec/fixtures"
 end

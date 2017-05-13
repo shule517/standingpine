@@ -1,8 +1,12 @@
 FactoryGirl.define do
   factory :topic do
-    title "MyString"
-    content "MyText"
-    link "MyString"
-    published_at "2017-05-12 15:20:09"
+    title { Faker::Lorem.sentence }
+    content { Faker::Lorem.paragraph }
+    link { Faker::Internet.url }
+    published_at { Faker::Date.backward((1..30).to_a.sample) }
+
+    trait :attached do
+      cover_image { fixture_file_upload("#{Rails.root}/spec/fixtures/dummy.jpg") }
+    end
   end
 end
