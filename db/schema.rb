@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512062253) do
+ActiveRecord::Schema.define(version: 20170514070728) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "biography"
+    t.boolean "regular"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "title"
