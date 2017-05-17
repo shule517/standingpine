@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517031519) do
+ActiveRecord::Schema.define(version: 20170517075513) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 20170517031519) do
     t.text "biography"
     t.boolean "regular"
     t.string "web_site"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
+  end
+
+  create_table "exhibitions", force: :cascade do |t|
+    t.string "title"
+    t.string "sub_title"
+    t.string "addition"
+    t.datetime "starting_on"
+    t.datetime "ending_on"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_image_file_name"
