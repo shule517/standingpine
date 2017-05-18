@@ -10,23 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517075513) do
+ActiveRecord::Schema.define(version: 20170518045121) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "title_ja"
+    t.string "title_en"
+    t.text "description_ja"
+    t.text "description_en"
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.text "biography"
     t.boolean "regular"
     t.string "web_site"
     t.datetime "created_at", null: false
@@ -35,26 +34,34 @@ ActiveRecord::Schema.define(version: 20170517075513) do
     t.string "cover_image_content_type"
     t.integer "cover_image_file_size"
     t.datetime "cover_image_updated_at"
+    t.string "name_ja"
+    t.string "name_en"
+    t.text "description_ja"
+    t.text "description_en"
+    t.text "biography_ja"
+    t.text "biography_en"
   end
 
   create_table "exhibitions", force: :cascade do |t|
-    t.string "title"
-    t.string "sub_title"
-    t.string "addition"
     t.datetime "starting_on"
     t.datetime "ending_on"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_image_file_name"
     t.string "cover_image_content_type"
     t.integer "cover_image_file_size"
     t.datetime "cover_image_updated_at"
+    t.string "title_ja"
+    t.string "title_en"
+    t.string "sub_title_ja"
+    t.string "sub_title_en"
+    t.string "addition_ja"
+    t.string "addition_en"
+    t.text "description_ja"
+    t.text "description_en"
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
     t.string "link"
     t.datetime "published_at"
     t.datetime "created_at", null: false
@@ -63,6 +70,12 @@ ActiveRecord::Schema.define(version: 20170517075513) do
     t.string "cover_image_content_type"
     t.integer "cover_image_file_size"
     t.datetime "cover_image_updated_at"
+    t.string "title_ja"
+    t.string "title_en"
+    t.string "sub_title_ja"
+    t.string "sub_title_en"
+    t.text "content_ja"
+    t.text "content_en"
   end
 
 end
