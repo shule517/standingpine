@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Article, type: :model do
   let(:article) { create(:article, :attached) }
@@ -7,10 +7,22 @@ RSpec.describe Article, type: :model do
     expect(article).to be_valid
   end
 
-  it "titleがなければ無効" do
-    article[:title] = nil
-    article.valid?
-    expect(article.errors[:title]).to include("can't be blank")
+  context "titleの検証" do
+    it "title_jaとtitle_enがなければ無効" do
+      article[:title_ja] = nil
+      article[:title_en] = nil
+      expect(article).not_to be_valid
+    end
+
+    it "title_jaがなくても有効" do
+      article[:title_ja] = nil
+      expect(article).to be_valid
+    end
+
+    it "title_enがなくても有効" do
+      article[:title_en] = nil
+      expect(article).to be_valid
+    end
   end
 
   it "imageがなければ無効" do

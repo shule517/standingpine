@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Artist, type: :model do
   let(:artist) { create(:artist, :attached) }
@@ -7,22 +7,58 @@ RSpec.describe Artist, type: :model do
     expect(artist).to be_valid
   end
 
-  it "nameがなければ無効" do
-    artist[:name] = nil
-    artist.valid?
-    expect(artist.errors[:name]).to include("can't be blank")
+  context "nameの検証" do
+    it "name_jaとname_enがなければ無効" do
+      artist[:name_ja] = nil
+      artist[:name_en] = nil
+      expect(artist).not_to be_valid
+    end
+
+    it "name_jaが無くても有効" do
+      artist[:name_ja] = nil
+      expect(artist).to be_valid
+    end
+
+    it "name_enが無くても有効" do
+      artist[:name_en] = nil
+      expect(artist).to be_valid
+    end
   end
 
-  it "descriptionがなければ無効" do
-    artist[:description] = nil
-    artist.valid?
-    expect(artist.errors[:description]).to include("can't be blank")
+  context "descriptionの検証" do
+    it "description_jaとdescription_enがなければ無効" do
+      artist[:description_ja] = nil
+      artist[:description_en] = nil
+      expect(artist).not_to be_valid
+    end
+
+    it "description_jaが無くても有効" do
+      artist[:description_ja] = nil
+      expect(artist).to be_valid
+    end
+
+    it "description_enが無くても有効" do
+      artist[:description_en] = nil
+      expect(artist).to be_valid
+    end
   end
 
-  it "biographyがなければ無効" do
-    artist[:biography] = nil
-    artist.valid?
-    expect(artist.errors[:biography]).to include("can't be blank")
+  context "biographyの検証" do
+    it "biography_jaとbiography_enがなければ無効" do
+      artist[:biography_ja] = nil
+      artist[:biography_en] = nil
+      expect(artist).not_to be_valid
+    end
+
+    it "biography_jaが無くても有効" do
+      artist[:biography_ja] = nil
+      expect(artist).to be_valid
+    end
+
+    it "biography_enが無くても有効" do
+      artist[:biography_en] = nil
+      expect(artist).to be_valid
+    end
   end
 
   it "cover_imageがなければ無効" do

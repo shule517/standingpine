@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
-  validates :title, presence: true
+  validates :title_ja, presence: true, unless: :title_present?
+  validates :title_en, presence: true, unless: :title_present?
   validates :image, presence: true
 
   has_attached_file :image, styles: { medium: "300x300>" }

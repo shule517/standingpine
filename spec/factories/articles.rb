@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :article do
-    title { Faker::Lorem.sentence }
-    description { Faker::Lorem.paragraph }
+    title_ja { Faker::Lorem.sentence }
+    title_en { Faker::Lorem.sentence }
+    description_ja { Faker::Lorem.paragraph }
+    description_en { Faker::Lorem.paragraph }
 
     trait :attached do
       image { fixture_file_upload("#{Rails.root}/spec/fixtures/dummy.jpg") }
