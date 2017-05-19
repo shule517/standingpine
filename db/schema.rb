@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518045121) do
+ActiveRecord::Schema.define(version: 20170519021317) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -59,6 +59,17 @@ ActiveRecord::Schema.define(version: 20170518045121) do
     t.string "addition_en"
     t.text "description_ja"
     t.text "description_en"
+  end
+
+  create_table "main_images", force: :cascade do |t|
+    t.string "title"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "topics", force: :cascade do |t|
