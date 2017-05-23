@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Artist, type: :model do
   let(:artist) { create(:artist, :attached) }
+  let(:articles) { create_pair(:article, :attached, artist: artist) }
 
   it "すべての要素があれば有効" do
     expect(artist).to be_valid
@@ -84,4 +85,17 @@ RSpec.describe Artist, type: :model do
     artist[:regular] = false
     expect(artist.regular).not_to eq true
   end
+
+  context "relationテスト" do
+    it "articleの要素があれば有効" do
+      expect(artist.articles).to match_array articles
+    end
+
+    it "artistを削除するとarticleも削除されている" do
+      artist
+      articles
+      expect{ artist.destroy }.to change { Article.count }.by(-2)
+    end
+  end
+
 end

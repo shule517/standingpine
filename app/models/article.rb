@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  belongs_to :artist
+
   validates :title_ja, presence: true, unless: :title_present?
   validates :title_en, presence: true, unless: :title_present?
   validates :image, presence: true
