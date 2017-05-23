@@ -1,4 +1,7 @@
 class Exhibition < ApplicationRecord
+  has_many :artist_exhibitions
+  has_many :artists, through: :artist_exhibitions
+
   validates :title_ja, presence: true, unless: :title_present?
   validates :title_en, presence: true, unless: :title_present?
   validates :description_ja, presence: true, unless: :description_present?

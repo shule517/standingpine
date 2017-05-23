@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
   has_many :articles, dependent: :destroy
+  has_many :artist_exhibitions
+  has_many :exhibitions, through: :artist_exhibitions
 
   validates :name_ja, presence: true, unless: :name_present?
   validates :name_en, presence: true, unless: :name_present?
