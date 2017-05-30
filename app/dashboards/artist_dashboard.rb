@@ -16,10 +16,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     web_site: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    cover_image_file_name: Field::String,
-    cover_image_content_type: Field::String,
-    cover_image_file_size: Field::Number,
-    cover_image_updated_at: Field::DateTime,
+    cover_image: Field::Paperclip,
     name_ja: Field::String,
     name_en: Field::String,
     description_ja: Field::Text,
@@ -34,9 +31,9 @@ class ArtistDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :articles,
-    :artist_exhibitions,
-    :exhibitions,
+    :name_ja,
+    :cover_image,
+    :regular,
     :id,
   ].freeze
 
@@ -51,10 +48,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     :web_site,
     :created_at,
     :updated_at,
-    :cover_image_file_name,
-    :cover_image_content_type,
-    :cover_image_file_size,
-    :cover_image_updated_at,
+    :cover_image,
     :name_ja,
     :name_en,
     :description_ja,
@@ -72,10 +66,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     :exhibitions,
     :regular,
     :web_site,
-    :cover_image_file_name,
-    :cover_image_content_type,
-    :cover_image_file_size,
-    :cover_image_updated_at,
+    :cover_image,
     :name_ja,
     :name_en,
     :description_ja,
