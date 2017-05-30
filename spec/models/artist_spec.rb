@@ -94,7 +94,7 @@ RSpec.describe Artist, type: :model do
 
     it "artistを削除するとarticleも削除されている" do
       articles
-      expect{ artist.destroy }.to change { Article.count }.by(-2)
+      expect { artist.destroy }.to change { Article.count }.by(-2)
     end
 
     it "exhibitionとの関連があれば有効" do

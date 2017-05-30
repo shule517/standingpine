@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe MainImage, type: :model do
   let(:main_image) { create(:main_image, :attached) }
