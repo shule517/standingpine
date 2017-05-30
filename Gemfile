@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails", "~> 5.1.0"
-gem "sqlite3"
+gem "pg"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -18,6 +18,7 @@ gem "paperclip"
 gem "administrate", github: "thoughtbot/administrate"
 
 group :development, :test do
+  gem "sqlite3"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-byebug"
   gem "rspec-rails"
