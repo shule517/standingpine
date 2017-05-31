@@ -88,4 +88,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # paperclip
+  config.paperclip_defaults = {
+    fog_host: 'https://standingpine.storage.googleapis.com',
+    storage: :fog,
+    fog_credentials: {
+      google_storage_access_key_id: ENV['GOOGLE_STORAGE_ID'],
+      google_storage_secret_access_key: ENV['GOOGLE_STORAGE_SECRET'],
+      provider: 'Google'
+    },
+    fog_directory: 'standingpine',
+    path: ':class/:id/:attachment/:style/:filename'
+  }
 end
