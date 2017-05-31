@@ -16,6 +16,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "rubocop", require: false
 gem "paperclip"
+gem 'fog-google'
+gem 'google-api-client'
 gem "administrate", github: "thoughtbot/administrate"
 gem "wysiwyg-rails"
 
