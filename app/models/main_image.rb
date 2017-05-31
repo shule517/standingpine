@@ -8,6 +8,6 @@ class MainImage < ApplicationRecord
   }
 
   validates_attachment :image, content_type: {
-    content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  }
+    content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"],
+  }, size: { in: 0..5.megabytes }
 end
