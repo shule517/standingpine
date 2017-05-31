@@ -13,5 +13,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-# Administrate Custom Stylesheets
+# Administrate Custom Javascript and Stylesheets
 Rails.application.config.assets.precompile += %w( administrate/custom_administrate.css )
+Rails.application.config.assets.precompile += %w( administrate/froala.js )

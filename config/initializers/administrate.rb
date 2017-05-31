@@ -38,4 +38,25 @@ module Administrate
   end
 end
 
-Administrate::Engine.add_stylesheet "administrate/custom_administrate"
+stylesheet_list = [
+  "froala_editor.min.css",
+  "froala_style.min.css",
+  "plugins/char_counter.min.css",
+  "plugins/code_view.min.css",
+  "plugins/colors.min.css",
+  "plugins/emoticons.min.css",
+  "plugins/file.min.css",
+  "plugins/fullscreen.min.css",
+  "plugins/image_manager.min.css",
+  "plugins/image.min.css",
+  "plugins/line_breaker.min.css",
+  "plugins/table.min.css",
+  "plugins/video.min.css",
+  "administrate/custom_administrate"
+]
+
+stylesheet_list.each do |stylesheet|
+  Administrate::Engine.add_stylesheet(stylesheet)
+end
+
+Administrate::Engine.add_javascript "administrate/froala"

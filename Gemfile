@@ -17,6 +17,7 @@ gem "jbuilder", "~> 2.5"
 gem "rubocop", require: false
 gem "paperclip"
 gem "administrate", github: "thoughtbot/administrate"
+gem "wysiwyg-rails"
 
 group :development, :test do
   gem "sqlite3"
