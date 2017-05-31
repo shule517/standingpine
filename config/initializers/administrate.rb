@@ -4,8 +4,6 @@ require 'rails'
 module Administrate
   module Field
     class Paperclip < Administrate::Field::Base
-      class Engine < ::Rails::Engine
-      end
 
       def style(size = big_style)
         data.try(:url, size) || ''
@@ -39,3 +37,5 @@ module Administrate
     end
   end
 end
+
+Administrate::Engine.add_stylesheet "administrate/custom_administrate"
