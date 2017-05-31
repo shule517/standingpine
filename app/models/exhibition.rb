@@ -8,7 +8,10 @@ class Exhibition < ApplicationRecord
   validates :description_en, presence: true, unless: :description_present?
   validates :cover_image, presence: true
 
-  has_attached_file :cover_image, styles: { medium: "300x300>" }
+  has_attached_file :cover_image, styles: {
+    thumbnail: "100x100#"
+  }
+
   validates_attachment :cover_image, content_type: {
     content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   }

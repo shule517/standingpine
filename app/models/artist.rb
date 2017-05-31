@@ -12,7 +12,6 @@ class Artist < ApplicationRecord
   validates :cover_image, presence: true
 
   has_attached_file :cover_image, styles: {
-    medium: "300x300>",
     thumbnail: "100x100#"
   }
 

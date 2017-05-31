@@ -3,7 +3,10 @@ class MainImage < ApplicationRecord
   validates :image, presence: true
   validates :active, inclusion: { in: [true, false] }
 
-  has_attached_file :image, styles: { medium: "300x300>" }
+  has_attached_file :image, styles: {
+    thumbnail: "100x100#"
+  }
+
   validates_attachment :image, content_type: {
     content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   }

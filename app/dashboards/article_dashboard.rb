@@ -12,10 +12,7 @@ class ArticleDashboard < Administrate::BaseDashboard
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image_file_name: Field::String,
-    image_content_type: Field::String,
-    image_file_size: Field::Number,
-    image_updated_at: Field::DateTime,
+    image: Field::Paperclip,
     title_ja: Field::String,
     title_en: Field::String,
     description_ja: Field::Text,
@@ -29,6 +26,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :artist,
+    :image,
     :id,
     :created_at,
     :updated_at,
@@ -41,10 +39,7 @@ class ArticleDashboard < Administrate::BaseDashboard
     :id,
     :created_at,
     :updated_at,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image,
     :title_ja,
     :title_en,
     :description_ja,
@@ -56,10 +51,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :artist,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image,
     :title_ja,
     :title_en,
     :description_ja,

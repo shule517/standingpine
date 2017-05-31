@@ -13,10 +13,7 @@ class MainImageDashboard < Administrate::BaseDashboard
     active: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image_file_name: Field::String,
-    image_content_type: Field::String,
-    image_file_size: Field::Number,
-    image_updated_at: Field::DateTime,
+    image: Field::Paperclip,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,6 +23,7 @@ class MainImageDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :image,
     :title,
     :active,
     :created_at,
@@ -39,10 +37,7 @@ class MainImageDashboard < Administrate::BaseDashboard
     :active,
     :created_at,
     :updated_at,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,10 +46,7 @@ class MainImageDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :title,
     :active,
-    :image_file_name,
-    :image_content_type,
-    :image_file_size,
-    :image_updated_at,
+    :image,
   ].freeze
 
   # Overwrite this method to customize how main images are displayed

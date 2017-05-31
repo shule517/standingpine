@@ -8,17 +8,13 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    artist_exhibitions: Field::HasMany,
     artists: Field::HasMany,
     id: Field::Number,
     starting_on: Field::DateTime,
     ending_on: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    cover_image_file_name: Field::String,
-    cover_image_content_type: Field::String,
-    cover_image_file_size: Field::Number,
-    cover_image_updated_at: Field::DateTime,
+    cover_image: Field::Paperclip,
     title_ja: Field::String,
     title_en: Field::String,
     sub_title_ja: Field::String,
@@ -35,8 +31,8 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :artist_exhibitions,
     :artists,
+    :cover_image,
     :id,
     :starting_on,
   ].freeze
@@ -44,17 +40,13 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :artist_exhibitions,
     :artists,
     :id,
     :starting_on,
     :ending_on,
     :created_at,
     :updated_at,
-    :cover_image_file_name,
-    :cover_image_content_type,
-    :cover_image_file_size,
-    :cover_image_updated_at,
+    :cover_image,
     :title_ja,
     :title_en,
     :sub_title_ja,
@@ -69,14 +61,10 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :artist_exhibitions,
     :artists,
     :starting_on,
     :ending_on,
-    :cover_image_file_name,
-    :cover_image_content_type,
-    :cover_image_file_size,
-    :cover_image_updated_at,
+    :cover_image,
     :title_ja,
     :title_en,
     :sub_title_ja,
