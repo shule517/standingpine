@@ -58,6 +58,7 @@ RSpec.configure do |config|
 
   # paperclip file uploadテスト用
   config.include ActionDispatch::TestProcess
+  config.include Paperclip::Shoulda::Matchers
 
   # FactoryGirl内での呼び出し
   FactoryGirl::SyntaxRunner.class_eval do

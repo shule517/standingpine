@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Exhibition, type: :model do
-  let(:exhibition) { create(:exhibition, :attached) }
+  let(:exhibition) { create(:exhibition) }
   let(:artist) { create(:artist, :attached) }
-  let(:artists) { create_pair(:artist, :attached) }
-  let(:articles) { create_pair(:article, :attached, artist: artists.first) }
+  let(:artists) { create_list(:artist, 2, :attached) }
+  let(:articles) { create_list(:article, 10, :attached, artist: artists.sample) }
 
   it "すべての要素があれば有効" do
     expect(exhibition).to be_valid
@@ -52,20 +52,33 @@ RSpec.describe Exhibition, type: :model do
     expect(exhibition.errors[:cover_image]).to include("can't be blank")
   end
 
-  it "画像をアップロードしていれば有効" do
-    expect(exhibition.cover_image_file_name).not_to be_nil
+  it "cover_imageがあれば有効" do
+    expect(exhibition).to have_attached_file(:cover_image)
   end
 
   context "relationテスト" do
+
     it "artistsとの関連があれば有効" do
       exhibition.artists << artists
       expect(exhibition.artists).to match_array artists
     end
 
-    it "artistのもっているarticleを確認できれば有効" do
+    it "artistの参加するexhibitionにarticleがあれば有効" do
+      @target_artist = artists.first
       articles
-      exhibition.artists << artists
-      expect(exhibition.artists.first.articles).to match_array articles
+      exhibition.artists << @target_artist
+      @have_articles = artists.first.articles
+      exhibition.articles << @have_articles
+      expect(exhibition.articles).to match_array @have_articles
+    end
+
+    it "artistの参加しないexhibitionにarticleがあれば無効" do
+      artists
+      articles
+      @have_articles = artists.first.articles.first
+      exhibition.exhibition_articles.build(article_id: @have_articles.id)
+      exhibition.valid?
+      expect(exhibition.errors[:exhibition_articles]).to include "is invalid"
     end
   end
 end
