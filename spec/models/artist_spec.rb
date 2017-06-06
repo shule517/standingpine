@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Artist, type: :model do
   let(:artist) { create(:artist, :attached) }
   let(:articles) { create_pair(:article, :attached, artist: artist) }
-  let(:exhibitions) { create_pair(:exhibition, :attached) }
+  let(:exhibitions) { create_pair(:exhibition) }
 
   it "すべての要素があれば有効" do
     expect(artist).to be_valid

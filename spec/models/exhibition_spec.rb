@@ -4,7 +4,7 @@ RSpec.describe Exhibition, type: :model do
   let(:exhibition) { create(:exhibition) }
   let(:artist) { create(:artist, :attached) }
   let(:artists) { create_list(:artist, 2, :attached) }
-  let(:articles) { create_list(:article, 10, :attached, artist: artists.sample) }
+  let(:articles) { create_list(:article, 10, :attached, artist: artist) }
 
   it "すべての要素があれば有効" do
     expect(exhibition).to be_valid
@@ -64,19 +64,16 @@ RSpec.describe Exhibition, type: :model do
     end
 
     it "artistの参加するexhibitionにarticleがあれば有効" do
-      @target_artist = artists.first
+      exhibition.artists << artist
       articles
-      exhibition.artists << @target_artist
-      @have_articles = artists.first.articles
-      exhibition.articles << @have_articles
-      expect(exhibition.articles).to match_array @have_articles
+      exhibition.articles << articles
+      expect(exhibition.articles).to match_array articles
     end
 
     it "artistの参加しないexhibitionにarticleがあれば無効" do
-      artists
+      artist
       articles
-      @have_articles = artists.first.articles.first
-      exhibition.exhibition_articles.build(article_id: @have_articles.id)
+      exhibition.exhibition_articles.build(article_id: articles.first.id)
       exhibition.valid?
       expect(exhibition.errors[:exhibition_articles]).to include "is invalid"
     end

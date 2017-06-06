@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe Article, type: :model do
   let(:artist) { create(:artist, :attached) }
   let(:article) { create(:article, :attached, artist: artist) }
+  let(:exhibitions) { create_list(:exhibition, 5) }
 
   it "すべての要素があれば有効" do
     expect(article).to be_valid
@@ -34,5 +35,27 @@ RSpec.describe Article, type: :model do
 
   it "画像をアップロードしていれば有効" do
     expect(article.image_file_name).not_to be_nil
+  end
+
+  context "relationテスト" do
+
+    it "artistsとの関連があれば有効" do
+      expect(article.artist).to eq artist
+    end
+
+    it "artistの参加するexhibitionに登録できれば有効" do
+      artist.exhibitions << exhibitions
+      article.exhibitions << exhibitions
+      expect(article.exhibitions).to match_array exhibitions
+    end
+
+    it "artistの参加しないexhibitionには登録できなければ有効" do
+      artist
+      article
+      exhibitions
+      article.exhibition_articles.build(exhibition_id: exhibitions.first.id)
+      article.valid?
+      expect(article.errors[:exhibition_articles]).to include "is invalid"
+    end
   end
 end
