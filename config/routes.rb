@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :articles
+    resources :topics
+    resources :main_images
     resources :artists
     resources :artist_exhibitions
     resources :exhibitions
-    resources :main_images
-    resources :topics
+    resources :exhibition_articles
+    resources :articles
 
     root to: "articles#index"
   end
