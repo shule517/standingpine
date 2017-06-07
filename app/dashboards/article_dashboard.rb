@@ -26,6 +26,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :title_ja,
     :artist,
     :image,
     :id,
@@ -65,6 +66,6 @@ class ArticleDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(article)
-    "作品 ##{article.id}"
+    "#{article.title_ja}"
   end
 end

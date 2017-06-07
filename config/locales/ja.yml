@@ -22,7 +22,7 @@ ja:
       confirm: 本当によろしいですか？
       destroy: 削除
       edit: 編集
-      show: 参照
+      show: 詳細
       new: 新規
       back: 戻る
     controller:

@@ -78,7 +78,7 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how exhibitions are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(exhibition)
-  #   "Exhibition ##{exhibition.id}"
-  # end
+  def display_resource(exhibition)
+    "#{exhibition.title_ja}"
+  end
 end

@@ -75,7 +75,7 @@ class ArtistDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how artists are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(artist)
-  #   "Artist ##{artist.id}"
-  # end
+  def display_resource(artist)
+    "#{artist.name_ja}"
+  end
 end
