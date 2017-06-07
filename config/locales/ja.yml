@@ -1,2 +1,64 @@
+default: &default
+  artist: 作家
+  artists: 作家
+  cover_image: 画像
+  starting_on: 開始日
+  ending_on: 終了日
+  exhibitions: 出展
+  image: 画像
+  artist: 作家
+  title: タイトル
+  title_ja: タイトル/日本語
+  title_en: タイトル/英語
+  description_ja: 説明・概要/日本語
+  description_en: 説明・概要/英語
+  published_at: 発行日
+  created_at: 登録日
+  updated_at: 更新日
+
 ja:
-  hello: "こんにちは世界"
+  administrate:
+    actions:
+      confirm: 本当によろしいですか？
+      destroy: 削除
+      edit: 編集
+      show: 参照
+      new: 新規
+      back: 戻る
+    controller:
+      create:
+        success: "%{resource}を作成しました。"
+      destroy:
+        success: "%{resource}を削除しました。"
+      update:
+        success: "%{resource}を更新しました。"
+    fields:
+      has_many:
+        more: "%{total_count} 件中 %{count} 件表示"
+        none: データがありません
+      polymorphic:
+        not_supported: フォームでは「多：多」の関連をサポートしていません。
+      has_one:
+        not_supported: フォームでは「１：１」の関連をサポートしていません。
+    search:
+      clear: 検索をクリアする
+      label: 検索 %{resource}
+  helpers:
+    label:
+      topic:
+        <<: *default
+        link: リンク先
+      main_image:
+        <<: *default
+      artist:
+        <<: *default
+        name_ja: 名前/日本語
+        name_en: 名前/英語
+        biography_ja: BIOGRAPHY/日本語
+        biography_en: BIOGRAPHY/英語
+        web_site: 公式サイト
+        regular: アーティストページに表示
+      article:
+        <<: *default
+      exhibition:
+        <<: *default

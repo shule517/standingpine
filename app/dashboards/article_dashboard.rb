@@ -39,13 +39,13 @@ class ArticleDashboard < Administrate::BaseDashboard
     :artist,
     :exhibitions,
     :id,
-    :created_at,
-    :updated_at,
     :image,
     :title_ja,
     :title_en,
     :description_ja,
     :description_en,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -64,7 +64,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how articles are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(article)
-  #   "Article ##{article.id}"
-  # end
+  def display_resource(article)
+    "作品 ##{article.id}"
+  end
 end
