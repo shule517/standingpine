@@ -9,6 +9,7 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     artists: Field::HasMany,
+    articles: Field::HasMany,
     id: Field::Number,
     starting_on: Field::DateTime,
     ending_on: Field::DateTime,
@@ -41,6 +42,7 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :artists,
+    :articles,
     :id,
     :starting_on,
     :ending_on,
@@ -62,6 +64,7 @@ class ExhibitionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :artists,
+    :articles,
     :starting_on,
     :ending_on,
     :cover_image,
