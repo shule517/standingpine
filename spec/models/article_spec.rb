@@ -30,7 +30,7 @@ RSpec.describe Article, type: :model do
   it "imageがなければ無効" do
     article[:image_file_name] = nil
     article.valid?
-    expect(article.errors[:image]).to include("can't be blank")
+    expect(article.errors[:image]).to include("を入力してください")
   end
 
   it "画像をアップロードしていれば有効" do
@@ -38,7 +38,6 @@ RSpec.describe Article, type: :model do
   end
 
   context "relationテスト" do
-
     it "artistsとの関連があれば有効" do
       expect(article.artist).to eq artist
     end
@@ -49,13 +48,13 @@ RSpec.describe Article, type: :model do
       expect(article.exhibitions).to match_array exhibitions
     end
 
-    it "artistの参加しないexhibitionには登録できなければ有効" do
+    xit "artistの参加しないexhibitionには登録できなければ有効" do
       artist
       article
       exhibitions
-      article.exhibition_articles.build(exhibition_id: exhibitions.first.id)
+      article.connections.build(exhibition_id: exhibitions.first.id)
       article.valid?
-      expect(article.errors[:exhibition_articles]).to include "is invalid"
+      expect(article.errors[:connections]).to include "は不正な値です"
     end
   end
 end

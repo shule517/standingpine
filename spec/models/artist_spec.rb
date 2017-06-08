@@ -66,7 +66,7 @@ RSpec.describe Artist, type: :model do
   it "cover_imageがなければ無効" do
     artist[:cover_image_file_name] = nil
     artist.valid?
-    expect(artist.errors[:cover_image]).to include("can't be blank")
+    expect(artist.errors[:cover_image]).to include("を入力してください")
   end
 
   it "web_siteがなくても有効" do

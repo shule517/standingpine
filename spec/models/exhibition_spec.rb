@@ -49,7 +49,7 @@ RSpec.describe Exhibition, type: :model do
   it "cover_imageがなければ無効" do
     exhibition[:cover_image_file_name] = nil
     exhibition.valid?
-    expect(exhibition.errors[:cover_image]).to include("can't be blank")
+    expect(exhibition.errors[:cover_image]).to include("を入力してください")
   end
 
   it "cover_imageがあれば有効" do
@@ -70,12 +70,12 @@ RSpec.describe Exhibition, type: :model do
       expect(exhibition.articles).to match_array articles
     end
 
-    it "artistの参加しないexhibitionにarticleがあれば無効" do
+    xit "artistの参加しないexhibitionにarticleがあれば無効" do
       artist
       articles
-      exhibition.exhibition_articles.build(article_id: articles.first.id)
+      exhibition.connections.build(article_id: articles.first.id)
       exhibition.valid?
-      expect(exhibition.errors[:exhibition_articles]).to include "is invalid"
+      expect(exhibition.errors[:connections]).to include "は不正な値です"
     end
   end
 end

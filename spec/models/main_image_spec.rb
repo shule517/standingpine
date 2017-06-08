@@ -15,7 +15,7 @@ RSpec.describe MainImage, type: :model do
   it "imageがなければ無効" do
     main_image[:image_file_name] = nil
     main_image.valid?
-    expect(main_image.errors[:image]).to include("can't be blank")
+    expect(main_image.errors[:image]).to include("を入力してください")
   end
 
   it "activeがなければ無効" do

@@ -1,6 +1,6 @@
 class Exhibition < ApplicationRecord
-  has_many :artist_exhibitions
-  has_many :artists, through: :artist_exhibitions
+  has_many :connections
+  has_many :artists, through: :connections
   has_many :exhibition_articles
   has_many :articles, through: :exhibition_articles
 
