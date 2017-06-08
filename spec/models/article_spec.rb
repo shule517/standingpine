@@ -42,19 +42,6 @@ RSpec.describe Article, type: :model do
       expect(article.artist).to eq artist
     end
 
-    it "artistの参加するexhibitionに登録できれば有効" do
-      artist.exhibitions << exhibitions
-      article.exhibitions << exhibitions
-      expect(article.exhibitions).to match_array exhibitions
-    end
-
-    xit "artistの参加しないexhibitionには登録できなければ有効" do
-      artist
-      article
-      exhibitions
-      article.connections.build(exhibition_id: exhibitions.first.id)
-      article.valid?
-      expect(article.errors[:connections]).to include "は不正な値です"
-    end
+    it "custom validationのエラーメッセージ確認"
   end
 end

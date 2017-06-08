@@ -63,19 +63,23 @@ RSpec.describe Exhibition, type: :model do
       expect(exhibition.artists).to match_array artists
     end
 
-    it "artistの参加するexhibitionにarticleがあれば有効" do
+    it "artistの参加するexhibitionはartistのarticleは登録できる" do
       exhibition.artists << artist
       articles
-      exhibition.articles << articles
-      expect(exhibition.articles).to match_array articles
+      @exhibition_artist = Connection.where(exhibition_id: exhibition.id).find_by(artist_id: artist.id)
+      @exhibition_artist.articles << articles
+      expect(@exhibition_artist.articles).to match_array articles
     end
 
-    xit "artistの参加しないexhibitionにarticleがあれば無効" do
+    it "artistの参加しないexhibitionにartistのarticleは登録できない" do
       artist
+      artists
       articles
-      exhibition.connections.build(article_id: articles.first.id)
-      exhibition.valid?
-      expect(exhibition.errors[:connections]).to include "は不正な値です"
+      exhibition.artists << artists
+      @exhibition_artist = Connection.where(exhibition_id: exhibition.id).find_by(artist_id: artists.first.id)
+      expect(@exhibition_artist.articles << articles).to be_falsey
     end
+
+    it "exhibitionからartistを削除するとarticleもexhibitionから消える"
   end
 end
