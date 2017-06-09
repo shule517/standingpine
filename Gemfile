@@ -20,7 +20,7 @@ gem "fog-google"
 gem "google-api-client"
 gem "administrate", github: "thoughtbot/administrate"
 gem "wysiwyg-rails"
-gem 'rails-i18n', "~> 5.0.0"
+gem "rails-i18n", "~> 5.0.0"
 
 group :development, :test do
   gem "sqlite3"
