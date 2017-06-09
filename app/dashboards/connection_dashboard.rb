@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ArtistExhibitionDashboard < Administrate::BaseDashboard
+class ConnectionDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,6 +10,7 @@ class ArtistExhibitionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     artist: Field::BelongsTo,
     exhibition: Field::BelongsTo,
+    articles: Field::HasMany,
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -23,8 +24,8 @@ class ArtistExhibitionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :artist,
     :exhibition,
+    :articles,
     :id,
-    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -32,6 +33,7 @@ class ArtistExhibitionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :artist,
     :exhibition,
+    :articles,
     :id,
     :created_at,
     :updated_at,
@@ -43,12 +45,13 @@ class ArtistExhibitionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :artist,
     :exhibition,
+    :articles,
   ].freeze
 
-  # Overwrite this method to customize how artist exhibitions are displayed
+  # Overwrite this method to customize how connections are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(artist_exhibition)
-  #   "ArtistExhibition ##{artist_exhibition.id}"
-  # end
+  def display_resource(connection)
+    "exhibition: #{connection.exhibition.title_ja} / artist: #{connection.artist.name_ja}"
+  end
 end

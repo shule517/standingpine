@@ -3,10 +3,9 @@ Rails.application.routes.draw do
     resources :topics
     resources :main_images
     resources :artists
-    resources :artist_exhibitions
     resources :exhibitions
-    resources :exhibition_articles
     resources :articles
+    resources :connections
 
     root to: "articles#index"
   end

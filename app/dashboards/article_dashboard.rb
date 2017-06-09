@@ -9,7 +9,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     artist: Field::BelongsTo,
-    exhibitions: Field::HasMany,
+    connection: Field::BelongsTo,
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -38,7 +38,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :artist,
-    :exhibitions,
+    :connection,
     :id,
     :image,
     :title_ja,
@@ -54,7 +54,7 @@ class ArticleDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :artist,
-    :exhibitions,
+    :connection,
     :image,
     :title_ja,
     :title_en,
