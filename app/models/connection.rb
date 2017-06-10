@@ -1,5 +1,5 @@
 class Connection < ApplicationRecord
   belongs_to :artist
   belongs_to :exhibition
-  has_many :articles
+  has_many :artworks
 end

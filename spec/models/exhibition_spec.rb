@@ -4,7 +4,7 @@ RSpec.describe Exhibition, type: :model do
   let(:exhibition) { create(:exhibition) }
   let(:artist) { create(:artist, :attached) }
   let(:artists) { create_list(:artist, 2, :attached) }
-  let(:articles) { create_list(:article, 10, :attached, artist: artist) }
+  let(:artworks) { create_list(:artwork, 10, :attached, artist: artist) }
 
   it "すべての要素があれば有効" do
     expect(exhibition).to be_valid
@@ -63,23 +63,23 @@ RSpec.describe Exhibition, type: :model do
       expect(exhibition.artists).to match_array artists
     end
 
-    it "artistの参加するexhibitionはartistのarticleは登録できる" do
+    it "artistの参加するexhibitionはartistのartworkは登録できる" do
       exhibition.artists << artist
-      articles
+      artworks
       @exhibition_artist = Connection.where(exhibition_id: exhibition.id).find_by(artist_id: artist.id)
-      @exhibition_artist.articles << articles
-      expect(@exhibition_artist.articles).to match_array articles
+      @exhibition_artist.artworks << artworks
+      expect(@exhibition_artist.artworks).to match_array artworks
     end
 
-    it "artistの参加しないexhibitionにartistのarticleは登録できない" do
+    it "artistの参加しないexhibitionにartistのartworkは登録できない" do
       artist
       artists
-      articles
+      artworks
       exhibition.artists << artists
       @exhibition_artist = Connection.where(exhibition_id: exhibition.id).find_by(artist_id: artists.first.id)
-      expect(@exhibition_artist.articles << articles).to be_falsey
+      expect(@exhibition_artist.artworks << artworks).to be_falsey
     end
 
-    it "exhibitionからartistを削除するとarticleもexhibitionから消える"
+    it "exhibitionからartistを削除するとartworkもexhibitionから消える"
   end
 end

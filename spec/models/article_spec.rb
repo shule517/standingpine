@@ -1,11 +1,9 @@
 require "rails_helper"
 
 RSpec.describe Article, type: :model do
-  let(:artist) { create(:artist, :attached) }
-  let(:article) { create(:article, :attached, artist: artist) }
-  let(:exhibitions) { create_list(:exhibition, 5) }
+  let(:article) { create(:article, :attached) }
 
-  it "すべての要素があれば有効" do
+  it "全ての要素が入力していれば有効" do
     expect(article).to be_valid
   end
 
@@ -27,21 +25,7 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  it "imageがなければ無効" do
-    article[:image_file_name] = nil
-    article.valid?
-    expect(article.errors[:image]).to include("を入力してください")
-  end
-
   it "画像をアップロードしていれば有効" do
-    expect(article.image_file_name).not_to be_nil
-  end
-
-  context "relationテスト" do
-    it "artistsとの関連があれば有効" do
-      expect(article.artist).to eq artist
-    end
-
-    it "custom validationのエラーメッセージ確認"
+    expect(article.cover_image_file_name).not_to be_nil
   end
 end

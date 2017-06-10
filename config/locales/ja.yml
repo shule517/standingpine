@@ -45,7 +45,7 @@ ja:
       label: 検索 %{resource}
   helpers:
     label:
-      topic:
+      article:
         <<: *default
         link: リンク先
       main_image:
@@ -58,7 +58,7 @@ ja:
         biography_en: BIOGRAPHY/英語
         web_site: 公式サイト
         regular: アーティストページに表示
-      article:
+      artwork:
         <<: *default
       exhibition:
         <<: *default

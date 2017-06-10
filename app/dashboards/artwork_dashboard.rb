@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class TopicDashboard < Administrate::BaseDashboard
+class ArtworkDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,18 +8,16 @@ class TopicDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    artist: Field::BelongsTo,
+    connection: Field::BelongsTo,
     id: Field::Number,
-    link: Field::String,
-    published_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    cover_image: Field::Paperclip,
+    image: Field::Paperclip,
     title_ja: Field::String,
     title_en: Field::String,
-    sub_title_ja: Field::String,
-    sub_title_en: Field::String,
-    content_ja: Field::Text,
-    content_en: Field::Text,
+    description_ja: Field::Text,
+    description_en: Field::Text,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,50 +26,46 @@ class TopicDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
-    :link,
-    :cover_image,
     :title_ja,
-    :published_at,
+    :artist,
+    :image,
+    :id,
     :created_at,
+    :updated_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :artist,
+    :connection,
     :id,
-    :link,
-    :published_at,
-    :created_at,
-    :updated_at,
-    :cover_image,
+    :image,
     :title_ja,
     :title_en,
-    :sub_title_ja,
-    :sub_title_en,
-    :content_ja,
-    :content_en,
+    :description_ja,
+    :description_en,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :link,
-    :published_at,
-    :cover_image,
+    :artist,
+    :connection,
+    :image,
     :title_ja,
     :title_en,
-    :sub_title_ja,
-    :sub_title_en,
-    :content_ja,
-    :content_en,
+    :description_ja,
+    :description_en,
   ].freeze
 
-  # Overwrite this method to customize how topics are displayed
+  # Overwrite this method to customize how artworks are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(topic)
-  #   "Topic ##{topic.id}"
-  # end
+  def display_resource(artwork)
+    "#{artwork.title_ja}"
+  end
 end

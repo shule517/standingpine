@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
-  has_many :articles, dependent: :destroy
+  has_many :artworks, dependent: :destroy
   has_many :connections
   has_many :exhibitions, through: :connections
 

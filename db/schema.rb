@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608130511) do
+ActiveRecord::Schema.define(version: 20170609111413) do
 
   create_table "articles", force: :cascade do |t|
+    t.string "link"
+    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    t.string "cover_image_file_name"
+    t.string "cover_image_content_type"
+    t.integer "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
     t.string "title_ja"
     t.string "title_en"
-    t.text "description_ja"
-    t.text "description_en"
-    t.integer "artist_id"
-    t.integer "connection_id"
-    t.index ["artist_id"], name: "index_articles_on_artist_id"
+    t.string "sub_title_ja"
+    t.string "sub_title_en"
+    t.text "content_ja"
+    t.text "content_en"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -43,6 +44,22 @@ ActiveRecord::Schema.define(version: 20170608130511) do
     t.text "description_en"
     t.text "biography_ja"
     t.text "biography_en"
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "title_ja"
+    t.string "title_en"
+    t.text "description_ja"
+    t.text "description_en"
+    t.integer "artist_id"
+    t.integer "connection_id"
+    t.index ["artist_id"], name: "index_artworks_on_artist_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -82,23 +99,6 @@ ActiveRecord::Schema.define(version: 20170608130511) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-  end
-
-  create_table "topics", force: :cascade do |t|
-    t.string "link"
-    t.datetime "published_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "cover_image_file_name"
-    t.string "cover_image_content_type"
-    t.integer "cover_image_file_size"
-    t.datetime "cover_image_updated_at"
-    t.string "title_ja"
-    t.string "title_en"
-    t.string "sub_title_ja"
-    t.string "sub_title_en"
-    t.text "content_ja"
-    t.text "content_en"
   end
 
 end

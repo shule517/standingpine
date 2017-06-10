@@ -10,7 +10,7 @@ class ConnectionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     artist: Field::BelongsTo,
     exhibition: Field::BelongsTo,
-    articles: Field::HasMany,
+    artworks: Field::HasMany,
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -24,7 +24,7 @@ class ConnectionDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :artist,
     :exhibition,
-    :articles,
+    :artworks,
     :id,
   ].freeze
 
@@ -33,7 +33,7 @@ class ConnectionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :artist,
     :exhibition,
-    :articles,
+    :artworks,
     :id,
     :created_at,
     :updated_at,
@@ -45,7 +45,7 @@ class ConnectionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :artist,
     :exhibition,
-    :articles,
+    :artworks,
   ].freeze
 
   # Overwrite this method to customize how connections are displayed
