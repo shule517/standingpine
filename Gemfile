@@ -22,6 +22,7 @@ gem "administrate", github: "thoughtbot/administrate"
 gem "wysiwyg-rails"
 gem "rails-i18n", "~> 5.0.0"
 gem "webpacker"
+gem "foreman"
 
 group :development, :test do
   gem "sqlite3"
