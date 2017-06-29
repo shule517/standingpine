@@ -1,18 +1,37 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css)
+@font-face
+  font-family: "g_font"
+  font-weight: normal
+  src: font-url('g_regular.woff') format('woff')
 
 @font-face
-  font-family: "Hannari"
-  font-style: normal
-  font-weight: 400
-  src: font-url('hannari.ttf') format('opentype')
-  src: font-url('hannari.woff') format('woff')
+  font-family: "g_bold"
+  font-weight: bold
+  src: font-url('g_bold.woff') format('woff')
 
 @font-face
-  font-family: "HannariTate"
-  font-style: normal
-  font-weight: 400
-  src: font-url('hannari-tate.ttf') format('opentype')
-  src: font-url('hannari-tate.woff') format('woff')
+  font-family: "Yu Gothic"
+  src: local("Yu Gothic Medium")
+  font-weight: 100
 
-$font-family: 'Noto Sans Japanese', sans-serif
+@font-face
+  font-family: "Yu Gothic"
+  src: local("Yu Gothic Medium")
+  font-weight: 200
+
+@font-face
+  font-family: "Yu Gothic"
+  src: local("Yu Gothic Medium")
+  font-weight: 300
+
+@font-face
+  font-family: "Yu Gothic"
+  src: local("Yu Gothic Medium")
+  font-weight: 400
+
+@font-face
+  font-family: "Yu Gothic"
+  src: local("Yu Gothic Bold")
+  font-weight: bold
+
+$font-family: 'g_font', 'Yu Gothic', sans-serif
 $font-size-normal: 14px
