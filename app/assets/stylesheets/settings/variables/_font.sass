@@ -1,37 +1,41 @@
+// STANDINGPINE Original Font
 @font-face
   font-family: "g_font"
   font-weight: normal
   src: font-url('g_regular.woff') format('woff')
 
 @font-face
-  font-family: "g_bold"
+  font-family: "g_font"
   font-weight: bold
   src: font-url('g_bold.woff') format('woff')
 
+// Base Fonts
+// http://qiita.com/RinoTsuka/items/4181efd43d072e246519
 @font-face
-  font-family: "Yu Gothic"
-  src: local("Yu Gothic Medium")
-  font-weight: 100
-
-@font-face
-  font-family: "Yu Gothic"
-  src: local("Yu Gothic Medium")
-  font-weight: 200
-
-@font-face
-  font-family: "Yu Gothic"
-  src: local("Yu Gothic Medium")
+  font-family: "Original Yu Gothic"
+  src: local("Yu Gothic")
   font-weight: 300
 
 @font-face
-  font-family: "Yu Gothic"
-  src: local("Yu Gothic Medium")
-  font-weight: 400
+  font-family: "Original Yu Gothic"
+  src: local("Yu Gothic")
+  font-weight: 500
 
 @font-face
-  font-family: "Yu Gothic"
-  src: local("Yu Gothic Bold")
+  font-family: "Original Yu Gothic"
+  src: local("Yu Gothic")
   font-weight: bold
 
-$font-family: 'g_font', 'Yu Gothic', sans-serif
-$font-size-normal: 14px
+@font-face
+  font-family: "Helvetica Neue"
+  src: local("Helvetica Neue Regular")
+  font-weight: 100
+
+@font-face
+  font-family: "Helvetica Neue"
+  src: local("Helvetica Neue Regular")
+  font-weight: 200
+
+$font-family: 'g_font', "Original Yu Gothic", "Yu Gothic", YuGothic, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Verdana, Meiryo, "M+ 1p", sans-serif
+
+$font-size: 1.4em

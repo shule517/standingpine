@@ -1,8 +1,11 @@
+html
+  font-size: 62.5%
+
 body
-  background-image: image-url("background-tail.png")
-  background-repeat: repeat
   color: $text-color
   font-family: $font-family
+  background-color: $background-color
+  font-size: 1.4em
 a
   &:hover, &:active
     transition: 0.5s
@@ -20,3 +23,13 @@ h1, h2, h3, h4, h5, h6
   font-family: $font-family
   letter-spacing: -0.05em
   font-weight: bold
+
+/* IE10以上のbase-font */
+@media all and (-ms-high-contrast: none)
+  html
+    font-family: Verdana, Meiryo, sans-serif
+
+@media all and (-ms-high-contrast: active)
+  html
+    font-family: Verdana, Meiryo, sans-serif
+
