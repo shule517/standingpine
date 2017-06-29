@@ -4,10 +4,19 @@
     <title>STANDING PINE</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag 'sanitize' %>
-    <%= javascript_pack_tag 'global_style' %>
+    <% ['containers/header', 'global_style'].each do |pack| %>
+      <%= javascript_pack_tag pack %>
+    <% end %>
   </head>
 
   <body>
+    <%= content_tag :header,
+      id: "main-image",
+      data: {
+        main_image: @main_image,
+        current_page: controller_name
+      }.to_json(methods: [:image_url]) do %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
