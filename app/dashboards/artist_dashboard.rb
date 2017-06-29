@@ -8,7 +8,7 @@ class ArtistDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    articles: Field::HasMany,
+    artworks: Field::HasMany,
     exhibitions: Field::HasMany,
     id: Field::Number,
     regular: Field::Boolean,
@@ -39,7 +39,7 @@ class ArtistDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :articles,
+    :artworks,
     :exhibitions,
     :id,
     :regular,
@@ -59,7 +59,7 @@ class ArtistDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :articles,
+    :artworks,
     :exhibitions,
     :regular,
     :web_site,
