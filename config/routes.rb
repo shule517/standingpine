@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "home#index"
+
   namespace :admin do
     resources :articles
     resources :main_images
