@@ -1,0 +1,205 @@
+.global-nav
+  max-width: 1000px
+  height: 70px
+  margin: 0 auto
+  padding: 0 20px
+  display: flex
+  justify-content: space-between
+  align-items: flex-end
+
+.global-nav__logo
+
+.global-nav__logo-h1
+  +none-padding-margin
+  font-size: 3.5rem
+  letter-spacing: .1em
+  line-height: 3rem
+  white-space: nowrap
+
+.global-nav__body
+  display: flex
+  font-size: $nav-font-size
+  letter-spacing: .02em
+
+.global-nav__items
+  +none-padding-margin
+  display: flex
+  margin-right: 40px
+
+.global-nav__item
+  padding-right: 20px
+  white-space: nowrap
+  +last-child-none
+
+.global-nav__social-items
+  +none-padding-margin
+  display: flex
+  margin-right: 40px
+
+.global-nav__social-item
+  padding-right: 20px
+  +last-child-none
+
+.global-nav__locate-items
+  +none-padding-margin
+  display: flex
+
+.global-nav__locate-item
+  position: relative
+  width: 18px
+  margin-right: 15px
+  +last-child-none
+  .is-jp
+    +locate-button("J")
+  .is-en
+    +locate-button("E")
+  .is-active
+    opacity: 1
+
+.global-nav__social-dropdown
+  display: none
+
++media($tablet)
+  .global-nav
+    max-width: 100%
+    height: auto
+    padding: 20px 10px
+
+  .global-nav__logo-h1
+    font-size: 2.8rem
+    letter-spacing: .05em
+    line-height: 3rem
+
+  .global-nav__body
+    align-items: center
+    letter-spacing: .02em
+
+  .global-nav__items
+    font-size: $nav-font-size - .25rem
+    margin-right: 20px
+
+  .global-nav__item
+    padding-right: 16px
+
+  .global-nav__social-items
+    margin-right: 20px
+
+  .global-nav__social-item
+    padding-right: 10px
+
+  .global-nav__locate-item
+    margin-right: 10px
+
++media($phone)
+  .global-nav
+    display: block
+
+  .global-nav__logo
+    margin-bottom: 20px
+
+  .global-nav__logo-h1
+    font-size: 2.8rem
+    letter-spacing: .05em
+    line-height: 3rem
+
+  .global-nav__body
+    justify-content: space-between
+    align-items: center
+    letter-spacing: .02em
+    position: relative
+
+  .global-nav__items
+    font-size: $nav-font-size - .25rem
+    letter-spacing: 0
+    margin-right: 20px
+
+  .global-nav__item
+    padding-right: 12px
+
+  .global-nav__social-items
+    margin-right: 0
+
+  .global-nav__social-item
+    padding-right: 10px
+
+  .global-nav__locate-items
+    position: absolute
+    top: -37px
+    right: 0
+
+  .global-nav__locate-item
+    margin-right: 10px
+
++media($mobile)
+  .global-nav__logo
+    margin-bottom: 15px
+
+  .global-nav__item
+    padding-right: 8px
+
+  .global-nav__social-items
+    display: none
+
+  .global-nav__locate-items
+    top: -32px
+
+  @keyframes show
+    from
+      opacity: 0
+    to
+      opacity: 1
+
+  .global-nav__social-dropdown
+    display: block
+    #dropdown_on
+      display: none
+    menu
+      +none-padding-margin
+      position: relative
+      font-size: $nav-font-size
+      line-height: $nav-font-size
+      height: $nav-font-size
+      width: $nav-font-size
+      background-color: $reversal-color
+    #dropdown_on:checked + menu
+      max-width: $nav-font-size
+      z-index: 20
+    #dropdown_on:checked + menu ul
+      display: block
+      animation: show .5s linear 0s
+    ul
+      +none-padding-margin
+      position: absolute
+      top: 15px
+      right: 0
+      display: none
+    li
+      list-style-type: none
+      background-color: $reversal-color
+      width: $nav-font-size * 2
+      white-space: nowrap
+      text-overflow: ellipsis
+    li a
+      display: block
+      padding: 10px
+      height: 30px
+      color: $base-color
+    #dropdown_on + menu::after
+      transition: all .5s
+      position: absolute
+      z-index: 30
+      display: block
+      font-family: FontAwesome
+      content: '\f142'
+      line-height: $nav-font-size
+      width: $nav-font-size
+      padding-left: 10px
+      color: white
+      right: 10px
+      top: -2px
+      background-color: $reversal-color
+      color: $base-color
+    #dropdown_on:checked + menu::after
+      font-family: FontAwesome
+      content: '\f142'
+      opacity: .5

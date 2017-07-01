@@ -5,19 +5,13 @@ body
   color: $text-color
   font-family: $font-family
   background-color: $background-color
-  font-size: 1.4em
+  font-size: $base-font-size
 a
+  color: $text-color
+  text-decoration: none
   &:hover, &:active
     transition: 0.5s
     opacity: .5
-
-+media($phone)
-  a
-    &:hover, &:active
-      transition: unset
-      opacity: unset
-    &:active
-      opacity: .5
 
 h1, h2, h3, h4, h5, h6
   font-family: $font-family

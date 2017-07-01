@@ -1,0 +1,36 @@
+<div class="global-nav">
+  <div class="global-nav__logo">
+    <h1 class="global-nav__logo-h1">
+      <%= link_to 'STANDING PINE', root_path %>
+    </h1>
+  </div>
+  <nav class="global-nav__body">
+    <ul class="global-nav__items">
+      <li class="global-nav__item"><%= link_to "EXHIBITION", "#" %></li>
+      <li class="global-nav__item"><%= link_to "ARTISTS", "#" %></li>
+      <li class="global-nav__item"><%= link_to "GALLERY", "#" %></li>
+      <li class="global-nav__item"><%= link_to "MAIL NEWS", "#" %></li>
+    </ul>
+    <ul class="global-nav__social-items">
+      <li class="global-nav__social-item"><%= link_to icon("twitter"), "#" %></li>
+      <li class="global-nav__social-item"><%= link_to icon("facebook-square"), "#" %></li>
+      <li class="global-nav__social-item"><%= link_to icon("instagram"), "#" %></li>
+    </ul>
+    <ul class="global-nav__locate-items">
+      <li class="global-nav__locate-item"><%= link_to "", "#", class: "is-jp is-active" %></li>
+      <li class="global-nav__locate-item"><%= link_to "", "#", class: "is-en" %></li>
+    </ul>
+    <div class="global-nav__social-dropdown">
+      <label for="dropdown_on">
+      <input id="dropdown_on" type="checkbox">
+        <menu>
+          <ul>
+            <li><%= link_to icon("twitter"), "#" %></li>
+            <li><%= link_to icon("facebook-square"), "#" %></li>
+            <li><%= link_to icon("instagram"), "#" %></li>
+          </ul>
+        </menu>
+      </label>
+    </div>
+  </nav>
+</div>
