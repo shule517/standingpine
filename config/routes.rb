@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  scope "(:locale)", locale: /en|ja/ do
+  end
+
+  get '/:locale' => 'home#index'
+
   root to: "home#index"
 
   namespace :admin do
