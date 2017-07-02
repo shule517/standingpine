@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|ja/ do
   end
 
-  get '/:locale' => 'home#index'
+  get '/:locale', to: 'home#index', constraints: { locale: 'en' }
 
   root to: "home#index"
 

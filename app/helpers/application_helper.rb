@@ -7,7 +7,7 @@ module ApplicationHelper
   def locale_button(locale)
     if locale == "ja"
       if params[:locale].present?
-        link_to_if params[:locale].present?, '',  url_for(controller: controller.controller_name, action: controller.action_name, locale: ''), class: "is-jp"
+        link_to_if params[:locale].present?, '',  url_for(controller: controller.controller_name, action: controller.action_name, locale: nil), class: "is-jp"
       else
         content_tag :div, class: "is-jp is-active" do
         end
