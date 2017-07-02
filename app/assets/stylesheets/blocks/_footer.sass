@@ -1,0 +1,83 @@
+.global-footer
+  max-width: 1000px
+  margin: 20px auto 50px
+  padding: 0 20px
+  display: flex
+
+.global-footer__logo
+  width: 220px
+  padding-top: 23px
+  position: relative
+  &:after
+    content: ''
+    border: 8px solid $base-color
+    width: 640px
+    height: 65px
+    position: absolute
+    top: 0
+    right: 20px
+
+
+.global-footer__logo-h2
+  +none-padding-margin
+  font-size: $medium-font-size + .2rem
+  letter-spacing: .01rem
+  white-space: nowrap
+
+.global-footer__body
+  display: flex
+  justify-content: space-between
+  font-size: $text-font-size
+  border-top: 2px solid $base-color
+  width: 100%
+  padding-top: 23px
+
+.global-footer__body-info
+
+.global-footer__body-info-items
+  +none-padding-margin
+  list-style-type: none
+
+.global-footer__body-info-item
+  br
+    display: none
+
+.global-footer__body-copyright
+  small
+    font-size: $text-font-size
+    font-weight: bold
+    letter-spacing: .01rem
+
++media($tablet)
+  .global-footer
+    max-width: 100%
+    padding: 0 10px
+    display: flex
+
++media($phone)
+  .global-footer
+    position: relative
+    margin-bottom: 150px
+
+  .global-footer__body
+    display: block
+    padding-top: 10px
+
+  .global-footer__body-info
+    position: absolute
+    top: 80px
+    left: 10px
+    padding-right: 10px
+
+  .global-footer__body-info-item
+    font-size: $small-font-size + 0.05rem
+
+  .global-footer__body-copyright
+    text-align: right
+
++media($mobile)
+  .global-footer__logo
+    &:after
+      position: absolute
+      top: 0
+      right: 10px

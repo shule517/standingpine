@@ -1,0 +1,11 @@
+<div class="main-image">
+  <div class="main-image__body">
+    <%= image_tag @main_image.image.url, class: 'main-image_cover' %>
+    <h2 class="main-image__logo">
+      STANDING PINE
+    </h2>
+  </div>
+  <p class="main-image__title">
+    <%= @main_image.title if @main_image.title.present? %>
+  </p>
+</div>

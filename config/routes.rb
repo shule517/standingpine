@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  scope "(:locale)", locale: /en|ja/ do
+  end
+
+  get '/:locale', to: 'home#index', constraints: { locale: 'en' }
+
+  root to: "home#index"
+
   namespace :admin do
     resources :articles
     resources :main_images

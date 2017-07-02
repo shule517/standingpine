@@ -21,6 +21,7 @@ gem "google-api-client"
 gem "administrate", github: "thoughtbot/administrate"
 gem "wysiwyg-rails"
 gem "rails-i18n", "~> 5.0.0"
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "sqlite3"
@@ -39,6 +40,8 @@ group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem "rb-fsevent", "0.9.8"
 end
 
 group :test do
