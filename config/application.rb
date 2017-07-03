@@ -29,12 +29,5 @@ module Standingpine
 
     #i18n
     config.i18n.default_locale = :ja
-    # bullet settings
-    config.after_initialize do
-      Bullet.enable = true
-      Bullet.bullet_logger = true
-      Bullet.console = true
-      Bullet.add_footer = true
-    end
   end
 end
