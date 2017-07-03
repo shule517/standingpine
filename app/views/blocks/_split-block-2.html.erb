@@ -9,7 +9,7 @@
           <ul class="split-block__item-descriptions">
             <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
             <li class="split-block__item-description"><%= content.locale("title") %></li>
-            <li class="split-block__item-description"><%== content.locale("content") %></li>
+            <li class="split-block__item-description"><%== truncate(content.locale("content"), length: 28, escape: false) %></li>
           </ul>
         </a>
       </li>
