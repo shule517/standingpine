@@ -1,5 +1,11 @@
 .sub-title
-  max-width: 1000px
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  position: absolute
+
+.sub-title__wrapper
+  max-width: 1024px
   margin: 0 auto
   padding: 0 20px
   position: relative
@@ -31,7 +37,10 @@
   width: 400px
   height: 560px
 
-+media($tablet)
++media($ipad-pro)
+  .sub-title
+    height: auto
+
   .is-news
     display: none
 

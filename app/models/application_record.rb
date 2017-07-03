@@ -16,4 +16,12 @@ class ApplicationRecord < ActiveRecord::Base
   def biography_present?
     biography_ja.present? || biography_en.present?
   end
+
+  def locale(column)
+    if self.send("#{column}_#{I18n.locale}").present?
+      self.send("#{column}_#{I18n.locale}")
+    else
+      self.send("#{column}_#{I18n.default_locale}")
+    end
+  end
 end
