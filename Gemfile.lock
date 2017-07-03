@@ -239,6 +239,8 @@ GEM
     pry-byebug (3.4.2)
       byebug (~> 9.0)
       pry (~> 0.10)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
@@ -397,6 +399,7 @@ DEPENDENCIES
   paperclip
   pg
   pry-byebug
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.0)
   rails-i18n (~> 5.0.0)
