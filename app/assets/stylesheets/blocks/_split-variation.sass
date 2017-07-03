@@ -1,0 +1,85 @@
+.split-block
+  max-width: 1024px
+  margin: 0 auto
+  padding: 0 18px
+
+.split-block__items
+  +none-padding-margin
+  display: flex
+  justify-content: space-between
+  list-style-type: none
+  flex-wrap: wrap
+
+.split-block__item
+  +none-padding-margin
+  width: 32.5%
+  height: 270px
+  position: relative
+  margin-bottom: 18px
+
+.into-2
+  width: 49.0%
+  height: 335px
+
+.split-block__item-link
+  backface-visibility: hidden
+  img
+    transition: all 8s linear
+
+  &:hover, &:active
+    opacity: 1
+    img
+      transform: scale(1.3)
+
+.split-block__item-cover
+  overflow: hidden
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:after
+    position: absolute
+    bottom: 0
+    left: 0
+    content: ''
+    width: 100%
+    height: 50%
+    background: linear-gradient(rgba(0, 0, 0, 0) 0, rgba($base-color, .8) 100%)
+
+.split-block__item-image
+  width: 130%
+
+.split-block__item-descriptions
+  +none-padding-margin
+  list-style-type: none
+  color: $reversal-color
+  letter-spacing: .1rem
+  position: absolute
+  left: 20px
+  bottom: 13px
+
+.split-block__item-description
+  p
+    +none-padding-margin
+
+.is_sub-title
+  font-size: $base-font-size - .2rem
+
++media($tablet)
+  .split-block
+    width: 100%
+    padding: 0 0px
+
+  .split-block__item
+    width: 49%
+    height: 270px
+
++media($phone)
+  .split-block__item
+    width: 100%
+    height: 300px
+    margin-bottom: 18px
+
+  .into-2
+    width: 100%
+    height: 300px

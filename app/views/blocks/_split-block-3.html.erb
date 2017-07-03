@@ -1,0 +1,18 @@
+<section class="split-block">
+  <ul class="split-block__items">
+    <% contents.each do |content| %>
+      <li class="split-block__item">
+        <a href="#" class="split-block__item-link">
+          <div class="split-block__item-cover">
+            <%= image_tag content.cover_image.url, class: "split-block__item-image" %>
+          </div>
+          <ul class="split-block__item-descriptions">
+            <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
+            <li class="split-block__item-description"><%= content.locale("title") %></li>
+            <li class="split-block__item-description"><%== content.locale("content") %></li>
+          </ul>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</section>

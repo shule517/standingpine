@@ -10,7 +10,10 @@
 
   <body>
     <%= render 'header' %>
-    <%= yield %>
+    <main>
+      <%= render 'sub-title' %>
+      <%= yield %>
+    </main>
     <%= render 'footer' %>
   </body>
 </html>
