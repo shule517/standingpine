@@ -5,9 +5,10 @@
   display: flex
 
 .global-footer__logo
-  width: 220px
+  width: 240px
   padding-top: 23px
   position: relative
+  flex-shrink: 0
   &:after
     content: ''
     border: 8px solid $base-color
@@ -15,8 +16,7 @@
     height: 65px
     position: absolute
     top: 0
-    right: 20px
-
+    left: -400px
 
 .global-footer__logo-h2
   +none-padding-margin
@@ -31,6 +31,7 @@
   border-top: 2px solid $base-color
   width: 100%
   padding-top: 23px
+  margin-left: 20px
 
 .global-footer__body-info
 
@@ -39,10 +40,9 @@
   list-style-type: none
 
 .global-footer__body-info-item
-  br
-    display: none
 
 .global-footer__body-copyright
+  white-space: nowrap
   small
     font-size: $text-font-size
     font-weight: bold
@@ -54,14 +54,21 @@
     padding: 0 10px
     display: flex
 
+  .global-footer__logo
+    padding-left: 10px
+    &:after
+      width: 260px
+      left: -13px
+
 +media($phone)
   .global-footer
     position: relative
-    margin-bottom: 150px
+    margin-bottom: 160px
 
   .global-footer__body
     display: block
     padding-top: 10px
+    margin-left: 20px
 
   .global-footer__body-info
     position: absolute
@@ -75,9 +82,21 @@
   .global-footer__body-copyright
     text-align: right
 
+  .global-footer__logo
+    width: 180px
+    &:after
+      width: 200px
+      left: -10px
+
 +media($mobile)
   .global-footer__logo
     &:after
       position: absolute
       top: 0
       right: 10px
+
+  .global-footer__logo
+    width: 140px
+    &:after
+      width: 160px
+      left: -10px
