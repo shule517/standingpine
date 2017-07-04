@@ -7,7 +7,7 @@
   <body>
     <%= render 'header' %>
     <main>
-      <%= render 'sub-title' %>
+      <%= render 'sub-title', { current_page: controller_name } %>
       <%= yield %>
     </main>
     <%= render 'footer' %>

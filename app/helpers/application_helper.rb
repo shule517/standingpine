@@ -21,4 +21,15 @@ module ApplicationHelper
       end
     end
   end
+
+  def sub_title(current_page)
+    case current_page
+    when "home"
+      "NEWS"
+    when "articles"
+      "NEWS"
+    else
+      "SUBTITLE IS EMPTY"
+    end
+  end
 end
