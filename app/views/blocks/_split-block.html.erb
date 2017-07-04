@@ -1,7 +1,8 @@
+<% @version = (local_assigns.has_key? :version) ? version: nil %>
 <section class="split-block">
   <ul class="split-block__items">
     <% contents.each do |content| %>
-      <li class="split-block__item">
+      <li class="split-block__item <%= @version %>">
         <a href="#" class="split-block__item-link">
           <div class="split-block__item-cover">
             <%= image_tag content.cover_image.url, class: "split-block__item-image" %>
