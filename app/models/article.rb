@@ -6,6 +6,11 @@ class Article < ApplicationRecord
 
   scope :published, -> { order('published_at DESC') }
   scope :published_limit, -> { order('published_at DESC').limit(2) }
+  scope :published_year, -> { order('published_at DESC').select('published_at').map{ |i| i.published_at.year }.uniq }
+
+  def self.by_year(year)
+    self.where(published_at: Date.new(year).all_year)
+  end
 
   def self.sharpen(limit_number)
     @limit = limit_number + 2
