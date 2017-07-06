@@ -9,7 +9,8 @@ class Article < ApplicationRecord
   scope :published_year, -> { order('published_at DESC').select('published_at').map{ |i| i.published_at.year }.uniq }
 
   def self.by_year(year)
-    self.where(published_at: Date.new(year).all_year)
+    @year = year.to_i
+    self.where(published_at: Date.new(@year).all_year)
   end
 
   def self.sharpen(limit_number)

@@ -9,7 +9,7 @@
           </div>
           <ul class="split-block__item-descriptions">
             <% if @version == "info_outside" %>
-              <li class="split-block__item-description is_sub-title"><%= content.published_at.strftime("%Y.%m.%d") %></li>
+              <li class="split-block__item-description is_sub-title"><%= content.published_at.strftime("%Y.%m") %></li>
               <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
               <li class="split-block__item-description"><%= content.locale("title") %></li>
             <% else %>

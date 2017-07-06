@@ -1,0 +1,10 @@
+<ul class="year-select__items">
+  <% @published_year.each do |p| %>
+    <li class="year-select__item">
+      <%= link_to p, articles_path(year: p) %>
+    </li>
+  <% end %>
+  <li class="year-select__item">
+    <%= link_to "ALL", articles_path  %>
+  </li>
+</ul>
