@@ -3,7 +3,7 @@
   <ul class="split-block__items">
     <% contents.each do |content| %>
       <li class="split-block__item <%= @version %>">
-        <a href="#" class="split-block__item-link">
+        <%= link_to content_url(content), class: 'split-block__item-link' do %>
           <div class="split-block__item-cover">
             <%= image_tag content.cover_image.url, class: "split-block__item-image" %>
           </div>
@@ -18,7 +18,7 @@
               <li class="split-block__item-description"><%== truncate(content.locale("content"), length: 28, escape: false) %></li>
             <% end %>
           </ul>
-        </a>
+        <% end %>
       </li>
     <% end %>
   </ul>

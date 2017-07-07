@@ -32,4 +32,12 @@ module ApplicationHelper
       "SUBTITLE IS EMPTY"
     end
   end
+
+  def content_url(content)
+    if content.link.present?
+      content.link
+    else
+      content
+    end
+  end
 end
