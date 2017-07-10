@@ -1,2 +1,5 @@
 <%= render 'blocks/split-block', { contents: @articles_limit, version: 'into-2' } %>
 <%= render 'blocks/split-block', { contents: @articles_sharpen } %>
+<div class="news-archive">
+  <%= link_to "NEWS ARCHIVE", articles_path, class: 'news-archive__link' %>
+</div>

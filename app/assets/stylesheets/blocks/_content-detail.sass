@@ -1,0 +1,67 @@
+.content-detail
+
+.content-detail__wrapper
+  max-width: 1024px
+  margin: 0 auto
+  padding: 0 20px
+
+.content-detail__image
+  margin-bottom: 20px
+
+.content-detail__image-cover
+  width: 760px
+  height: 600px
+  overflow: hidden
+  display: flex
+  justify-content: center
+  align-items: center
+
+.content-detail__image-body
+  width: 100%
+
+.content-detail__body
+  display: flex
+  justify-content: space-between
+
+.content-detail__description
+  margin-top: 20px
+
+.content-detail__description-items
+  +none-padding-margin
+  list-style-type: none
+
+.content-detail__description-item
+  margin-bottom: 10px
+
+.content-detail__content
+  width: 660px
+  border-top: 2px solid $base-color
+  padding-top: 20px
+  font-size: $text-font-size
+
++media($tablet)
+  .content-detail__wrapper
+    width: 100%
+    margin: 0 auto
+    padding: 0 0
+
+  .content-detail__image-cover
+    max-width: 760px
+    width: 100%
+    height: auto
+
+  .content-detail__description
+    width: 200px
+    flex-shrink: 0
+    padding-left: 10px
+
+  .content-detail__content
+    width: 100%
+    padding: 15px 10px
+
++media($phone)
+  .content-detail__body
+    display: block
+
+  .content-detail__description
+    margin-bottom: 30px

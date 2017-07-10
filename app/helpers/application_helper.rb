@@ -21,4 +21,33 @@ module ApplicationHelper
       end
     end
   end
+
+  def sub_title(current_page)
+    case current_page
+    when "home"
+      "NEWS"
+    when "articles"
+      "NEWS"
+    else
+      "SUBTITLE IS EMPTY"
+    end
+  end
+
+  def content_url(content)
+    if content.link.present?
+      content.link
+    else
+      content
+    end
+  end
+
+  def next(contents, content)
+    contents.find_index content
+    content + 1
+  end
+
+  def prev(contents, content)
+    contents.find_index content
+    content - 1
+  end
 end

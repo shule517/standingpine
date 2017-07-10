@@ -3,16 +3,22 @@
   <ul class="split-block__items">
     <% contents.each do |content| %>
       <li class="split-block__item <%= @version %>">
-        <a href="#" class="split-block__item-link">
+        <%= link_to content_url(content), class: 'split-block__item-link' do %>
           <div class="split-block__item-cover">
             <%= image_tag content.cover_image.url, class: "split-block__item-image" %>
           </div>
           <ul class="split-block__item-descriptions">
-            <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
-            <li class="split-block__item-description"><%= content.locale("title") %></li>
-            <li class="split-block__item-description"><%== truncate(content.locale("content"), length: 28, escape: false) %></li>
+            <% if @version == "info_outside" %>
+              <li class="split-block__item-description is_sub-title"><%= content.published_at.strftime("%Y.%m") %></li>
+              <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
+              <li class="split-block__item-description"><%= content.locale("title") %></li>
+            <% else %>
+              <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
+              <li class="split-block__item-description"><%= content.locale("title") %></li>
+              <li class="split-block__item-description"><%== truncate(content.locale("content"), length: 28, escape: false) %></li>
+            <% end %>
           </ul>
-        </a>
+        <% end %>
       </li>
     <% end %>
   </ul>

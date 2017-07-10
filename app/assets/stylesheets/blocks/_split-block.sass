@@ -16,7 +16,7 @@
 .split-block__item
   +none-padding-margin
   width: 32.5%
-  height: 270px
+  height: auto
   position: relative
   margin-bottom: 18px
 
@@ -36,7 +36,7 @@
 
 .split-block__item-cover
   overflow: hidden
-  height: 100%
+  height: 270px
   display: flex
   justify-content: center
   align-items: center
@@ -68,6 +68,18 @@
 .is_sub-title
   font-size: $base-font-size - .2rem
 
+.info_outside
+  .split-block__item-cover
+    &:after
+      display: none
+  .split-block__item-descriptions
+    +none-padding-margin
+    list-style-type: none
+    color: $base-color
+    letter-spacing: .1rem
+    position: static
+    margin-top: 10px
+
 +media($tablet)
   .split-block
     width: 100%
@@ -75,13 +87,17 @@
 
   .split-block__item
     width: 49%
+
+  .split-block__item-cover
     height: 270px
 
 +media($phone)
   .split-block__item
     width: 100%
-    height: 300px
     margin-bottom: 18px
+
+  .split-block__item-cover
+    height: 300px
 
   .into-2
     width: 100%
