@@ -40,4 +40,14 @@ module ApplicationHelper
       content
     end
   end
+
+  def next(contents, content)
+    contents.find_index content
+    content + 1
+  end
+
+  def prev(contents, content)
+    contents.find_index content
+    content - 1
+  end
 end

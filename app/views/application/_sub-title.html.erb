@@ -1,13 +1,11 @@
 <% @current_page = (local_assigns.has_key? :current_page) ? current_page: nil %>
-<div class="sub-title <%= "is-responsive_none" if @current_page == 'home' %>">
+<header class="sub-title <%= "is-responsive_none" if @current_page == 'home' %>">
   <div class="sub-title__wrapper">
     <h3 class="sub-title__title">
       <%= sub_title(@current_page) %>
     </h3>
     <div class="sub-title__content-box">
-      <% if @current_page == 'articles' %>
-        <%= render 'articles/year-select' %>
-      <% end %>
+      <%= render 'articles/year-select' if @current_page == 'articles' %>
     </div>
   </div>
   <div class="design-box">
@@ -15,4 +13,4 @@
       <div class="design-box__body"></div>
     </div>
   </div>
-</div>
+</header>

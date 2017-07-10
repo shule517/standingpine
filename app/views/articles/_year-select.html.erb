@@ -1,10 +1,38 @@
-<ul class="year-select__items">
-  <% @published_year.each do |p| %>
+<% if controller.action_name == 'index' %>
+  <ul class="year-select__items">
+    <% @published_year.each do |p| %>
+      <li class="year-select__item">
+        <%= link_to p, articles_path(year: p) %>
+      </li>
+    <% end %>
     <li class="year-select__item">
-      <%= link_to p, articles_path(year: p) %>
+      <%= link_to "ALL", articles_path  %>
     </li>
-  <% end %>
-  <li class="year-select__item">
-    <%= link_to "ALL", articles_path  %>
-  </li>
-</ul>
+  </ul>
+<% else %>
+  <ul class="year-select__items is-show-wrapper">
+    <li class="year-select__item is-border-none">
+      <% if @prev_article == false %>
+          <div class="arrow-left is-last"></div>
+      <% else %>
+        <%= link_to article_path(@prev_article) do %>
+          <div class="arrow-left"></div>
+        <% end %>
+      <% end %>
+    </li>
+    <li class="year-select__item is-border-none">
+      <% if @next_article == false %>
+          <div class="arrow-right is-last"></div>
+      <% else %>
+        <%= link_to article_path(@next_article) do %>
+          <div class="arrow-right"></div>
+        <% end %>
+      <% end %>
+    </li>
+    <li class="year-select__item is-show">
+      <%= link_to articles_path do %>
+        <%= @article.published_at.strftime("%Y.%m") %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

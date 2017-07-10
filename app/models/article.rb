@@ -18,6 +18,16 @@ class Article < ApplicationRecord
     self.published.limit(@limit) - self.published_limit
   end
 
+  def self.next(content)
+    @current_content = self.published.find_index content
+    self.published[@current_content + 1] == nil ? false : self.find(self.published[@current_content + 1].id)
+  end
+
+  def self.prev(content)
+    @current_content = self.published.find_index content
+    self.published[@current_content] == self.published[0] ? false : self.find(self.published[@current_content - 1].id)
+  end
+
   has_attached_file :cover_image, styles: {
     thumbnail: "100x100#"
   }
