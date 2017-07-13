@@ -5,7 +5,7 @@
       <%= sub_title(@current_page) %>
     </h3>
     <div class="sub-title__content-box">
-      <%= render 'articles/year-select', { current_page: @current_page } unless @current_page == 'home' %>
+      <%= render 'append_info', { current_page: @current_page } unless @current_page == 'home' %>
     </div>
   </div>
   <div class="design-box">

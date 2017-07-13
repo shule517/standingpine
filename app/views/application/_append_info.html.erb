@@ -9,7 +9,7 @@
       <%= link_to "ALL", articles_path  %>
     </li>
   </ul>
-<% else %>
+<% elsif controller_name == 'articles' && controller_name == 'show' %>
   <ul class="year-select__items is-show-wrapper">
     <li class="year-select__item is-border-none">
       <% if @prev_article == false %>
@@ -35,4 +35,5 @@
       <% end %>
     </li>
   </ul>
+<% else %>
 <% end %>
