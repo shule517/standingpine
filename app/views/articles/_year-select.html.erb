@@ -1,6 +1,6 @@
 <% if controller.action_name == 'index' %>
   <ul class="year-select__items">
-    <% @published_year.each do |p| %>
+    <% @select_year.each do |p| %>
       <li class="year-select__item">
         <%= link_to p, articles_path(year: p) %>
       </li>

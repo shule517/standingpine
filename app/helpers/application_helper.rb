@@ -28,14 +28,20 @@ module ApplicationHelper
       "NEWS"
     when "articles"
       "NEWS"
+    when "exhibitions"
+      "EXHIBITION"
     else
       "SUBTITLE IS EMPTY"
     end
   end
 
   def content_url(content)
-    if content.link.present?
-      content.link
+    if controller_name == 'home' || controller_name == 'articles'
+      if content.link.present?
+        content.link
+      else
+        content
+      end
     else
       content
     end
@@ -49,5 +55,19 @@ module ApplicationHelper
   def prev(contents, content)
     contents.find_index content
     content - 1
+  end
+
+  def page_location
+    @controller = controller_name
+
+    case @controller
+    when "home"
+      "article"
+    when "articles"
+      "article"
+    when "exhibitions"
+      "exhibition"
+    else
+    end
   end
 end

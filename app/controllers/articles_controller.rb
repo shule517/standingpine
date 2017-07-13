@@ -6,13 +6,13 @@ class ArticlesController < ApplicationController
       @articles = Article.published
     end
 
-    @published_year = Article.published_year[0..3]
+    @select_year = Article.published_year[0..3]
   end
 
   def show
     @article = Article.find(params[:id])
     @next_article = Article.next(@article)
     @prev_article = Article.prev(@article)
-    @published_year = Article.published_year[0..3]
+    @select_year = Article.published_year[0..3]
   end
 end
