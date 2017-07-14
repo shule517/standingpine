@@ -1,0 +1,10 @@
+<div class="content-detail__description">
+  <ul class="content-detail__description-items">
+      <li class="content-detail__description-item"><%= content.published_at.strftime("%Y.%m") %></li>
+      <li class="content-detail__description-item is_sub-title"><%= content.locale("sub_title") %></li>
+      <li class="content-detail__description-item is_title"><%= content.locale("title") %></li>
+  </ul>
+</div>
+<div class="content-detail__content">
+  <%== content.locale('content') %>
+</div>

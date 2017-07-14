@@ -9,7 +9,7 @@
       <%= link_to "ALL", articles_path  %>
     </li>
   </ul>
-<% elsif controller_name == 'articles' && controller_name == 'show' %>
+<% elsif controller_name == 'articles' && controller.action_name == 'show' %>
   <ul class="year-select__items is-show-wrapper">
     <li class="year-select__item is-border-none">
       <% if @prev_article == false %>
@@ -36,4 +36,13 @@
     </li>
   </ul>
 <% else %>
+  <ul class="year-select__items is-show-wrapper">
+    <li class="year-select__item is_past">
+    <%  if @exhibition_first == params[:id].to_i %>
+      CURRENT EXHIBITION
+    <% else %>
+      PAST EXHIBITION
+    <% end %>
+    </li>
+  </ul>
 <% end %>
