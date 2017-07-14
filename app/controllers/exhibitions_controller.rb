@@ -8,5 +8,6 @@ class ExhibitionsController < ApplicationController
   def show
     @exhibition_first = Exhibition.started.first.id
     @exhibition = Exhibition.find(params[:id])
+    @artists = @exhibition.artists
   end
 end
