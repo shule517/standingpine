@@ -1,7 +1,7 @@
 <% @version = (local_assigns.has_key? :version) ? version: nil %>
 <section class="split-block">
   <ul class="split-block__items">
-    <% if controller_name == 'exhibitions' && controller.action_name == 'show' %>
+    <% if @version == "info_none" %>
       <% contents.each do |content| %>
         <% content.connections.includes(:artworks).each do |connection| %>
           <% connection.artworks.each do |artwork| %>

@@ -1,4 +1,7 @@
-<% if controller.action_name == 'index' %>
+<% if controller_name == 'artists' %>
+  <ul class="year-select__items">
+  </ul>
+<% elsif controller.action_name == 'index' %>
   <ul class="year-select__items">
     <% @select_year.each do |p| %>
       <li class="year-select__item">
