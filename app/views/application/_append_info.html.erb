@@ -1,6 +1,6 @@
 <% if controller.action_name == 'index' %>
   <ul class="year-select__items">
-    <% @published_year.each do |p| %>
+    <% @select_year.each do |p| %>
       <li class="year-select__item">
         <%= link_to p, articles_path(year: p) %>
       </li>
@@ -9,7 +9,7 @@
       <%= link_to "ALL", articles_path  %>
     </li>
   </ul>
-<% else %>
+<% elsif controller_name == 'articles' && controller.action_name == 'show' %>
   <ul class="year-select__items is-show-wrapper">
     <li class="year-select__item is-border-none">
       <% if @prev_article == false %>
@@ -33,6 +33,16 @@
       <%= link_to articles_path do %>
         <%= @article.published_at.strftime("%Y.%m") %>
       <% end %>
+    </li>
+  </ul>
+<% else %>
+  <ul class="year-select__items is-show-wrapper">
+    <li class="year-select__item is_past">
+    <%  if @exhibition_first == params[:id].to_i %>
+      CURRENT EXHIBITION
+    <% else %>
+      PAST EXHIBITION
+    <% end %>
     </li>
   </ul>
 <% end %>

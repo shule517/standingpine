@@ -8,6 +8,15 @@ class Exhibition < ApplicationRecord
   validates :description_en, presence: true, unless: :description_present?
   validates :cover_image, presence: true
 
+  scope :started, -> { order('starting_on DESC') }
+  scope :started_year, -> { order('starting_on DESC').select('starting_on').map{ |i| i.starting_on.year }.uniq
+ }
+
+  def self.by_year(year)
+    @year = year.to_i
+    self.where(starting_on: Date.new(@year).all_year)
+  end
+
   has_attached_file :cover_image, styles: {
     thumbnail: "100x100#"
   }

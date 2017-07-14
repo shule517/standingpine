@@ -65,8 +65,24 @@
   p
     +none-padding-margin
 
+.is_title
+  margin-bottom: 4px
+  line-height: 23px
+
 .is_sub-title
   font-size: $base-font-size - .2rem
+  margin-bottom: 2px
+  line-height: 20px
+  vertical-align: center
+
+.is_date
+  font-size: $base-font-size - .2rem
+  margin-bottom: 3px
+
+.is_content
+  font-size: $base-font-size - .2rem
+  line-height: 20px
+  vertical-align: center
 
 .info_outside
   .split-block__item-cover
@@ -80,6 +96,10 @@
     position: static
     margin-top: 10px
 
+.is_no-shadow
+  &:after
+    content: none
+
 +media($tablet)
   .split-block
     width: 100%
@@ -90,6 +110,14 @@
 
   .split-block__item-cover
     height: 270px
+
+  .split-block__item-descriptions
+    left: 10px
+    padding-right: 10px
+
+  .info_outside
+    .split-block__item-description
+      padding: 0 10px
 
 +media($phone)
   .split-block__item

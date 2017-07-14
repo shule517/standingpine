@@ -28,14 +28,20 @@ module ApplicationHelper
       "NEWS"
     when "articles"
       "NEWS"
+    when "exhibitions"
+      "EXHIBITION"
     else
       "SUBTITLE IS EMPTY"
     end
   end
 
   def content_url(content)
-    if content.link.present?
-      content.link
+    if controller_name == 'home' || controller_name == 'articles'
+      if content.link.present?
+        content.link
+      else
+        content
+      end
     else
       content
     end
@@ -49,5 +55,29 @@ module ApplicationHelper
   def prev(contents, content)
     contents.find_index content
     content - 1
+  end
+
+  def page_location
+    @controller = controller_name
+
+    case @controller
+    when "home"
+      "article"
+    when "articles"
+      "article"
+    when "exhibitions"
+      "exhibition"
+    else
+    end
+  end
+
+  def embedded_svg filename, options={}
+    file = File.read(Rails.root.join('app', 'assets', 'images', filename))
+    doc = Nokogiri::HTML::DocumentFragment.parse file
+    svg = doc.at_css 'svg'
+    if options[:class].present?
+      svg['class'] = options[:class]
+    end
+    doc.to_html.html_safe
   end
 end

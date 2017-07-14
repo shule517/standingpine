@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :exhibitions, only: [:index, :show]
   resources :articles, only: [:index, :show]
 
   scope "(:locale)", locale: /en|ja/ do

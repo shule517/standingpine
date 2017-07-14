@@ -13,10 +13,12 @@
   position: absolute
   font-size: $medium-font-size + .2rem
   font-weight: normal
-  letter-spacing: .01rem
+  letter-spacing: .05rem
   white-space: nowrap
   top: 26px
-  left: -65px
+  left: -225px
+  width: 200px
+  text-align: right
   &:after
     content: ''
     border: 8px solid $base-color
@@ -24,7 +26,7 @@
     height: 65px
     position: absolute
     top: -26px
-    left: -317px
+    left: -157px
 
 .sub-title__content-box
 
@@ -108,6 +110,14 @@
 .is-show
   width: 100px
 
+.is_past
+  white-space: nowrap
+  width: 100%
+  letter-spacing: .05rem
+  &:hover
+    transition: none
+    opacity: 1
+
 .design-box
   width: 100%
   height: 120%
@@ -156,6 +166,9 @@
   .sub-title__wrapper
     padding: 0
 
+  .year-select__items
+    margin-right: 10px
+
   .is-border-none
     width: 40px
     &:nth-of-type(2)
@@ -185,6 +198,9 @@
     max-width: 60px
     text-align: center
 
+  .is_past
+    max-width: none
+
   .is-border-none
     &:nth-of-type(2)
       padding-right: 25%
@@ -193,8 +209,11 @@
   .sub-title__title
     width: 48%
 
+  .year-select__items
+    margin-right: 5px
+
   .year-select__item
-    max-width: 42px
+    max-width: 40px
     &:first-child
       &:nth-last-child(5)
         &,
@@ -211,3 +230,6 @@
   .is-show
     max-width: 60px
     text-align: center
+
+  .is_past
+    max-width: none

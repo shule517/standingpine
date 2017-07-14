@@ -1,0 +1,11 @@
+<ul class="split-block__item-descriptions">
+  <% if @version == "info_outside" %>
+    <li class="split-block__item-description is_date"><%= content.published_at.strftime("%Y.%m") %></li>
+    <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
+    <li class="split-block__item-description"><%= content.locale("title") %></li>
+  <% else %>
+    <li class="split-block__item-description is_sub-title"><%= content.locale("sub_title") %></li>
+    <li class="split-block__item-description is_title"><%= content.locale("title") %></li>
+    <li class="split-block__item-description is_content"><%== truncate(content.locale("content"), length: 28, escape: false) %></li>
+  <% end %>
+</ul>
