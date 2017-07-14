@@ -39,8 +39,6 @@ class ArtistDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :artworks,
-    :exhibitions,
     :id,
     :regular,
     :web_site,
@@ -53,6 +51,8 @@ class ArtistDashboard < Administrate::BaseDashboard
     :description_en,
     :biography_ja,
     :biography_en,
+    :artworks,
+    :exhibitions,
   ].freeze
 
   # FORM_ATTRIBUTES
