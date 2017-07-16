@@ -1,6 +1,6 @@
 <% @version = (local_assigns.has_key? :version) ? version: nil %>
 <% @artworks = (local_assigns.has_key? :artworks) ? artworks: nil %>
-<section class="split-block">
+<section class="split-block <%= "is_none-padding-side" if @version == "into-2" && controller_name == 'artists' %>">
   <ul class="split-block__items">
     <% if @version == "into-2" && controller_name == 'artists' %>
       <% contents.each do |past| %>
