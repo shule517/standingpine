@@ -1,20 +1,22 @@
-<div class="content-detail__description">
-  <ul class="content-detail__description-items">
-    <li class="content-detail__description-item is_sub-title"><%= content.locale("sub_title") %></li>
-    <li class="content-detail__description-item is_title"><%= content.locale("title") %></li>
-    <li class="split-block__item-description-item is_date"><%= content.starting_on.strftime("%Y.%m.%d %a") %> - <%= content.ending_on.strftime("%Y.%m.%d %a") %></li>
-    <li class="content-detail__description-item is_addition"><%= content.locale("addition") %></li>
-    <li class="content-detail__description-item is_artist-info">
-      <ul class="content-detail__description-item__artists">
-        <% content.artists.each do |artist| %>
-          <li class="content-detail__description-item__artist">
-            <%= link_to artist.locale("name"), "#" %><%= embedded_svg("svg/external.svg", class: 'is_external-svg') %>
-          </li>
-        <% end %>
-      </ul>
-    </li>
-  </ul>
-</div>
-<div class="content-detail__content">
-  <%== content.locale('description') %>
+<div class="content-detail__body">
+  <div class="content-detail__description">
+    <ul class="content-detail__description-items">
+      <li class="content-detail__description-item is_sub-title_in-detail"><%= content.locale("sub_title") %></li>
+      <li class="content-detail__description-item is_title"><%= content.locale("title") %></li>
+      <li class="split-block__item-description-item is_date_in-detail"><%= content.starting_on.strftime("%Y.%m.%d %a") %> - <%= content.ending_on.strftime("%Y.%m.%d %a") %></li>
+      <li class="content-detail__description-item is_addition"><%= content.locale("addition") %></li>
+      <li class="content-detail__description-item is_artist-info">
+        <ul class="content-detail__description-item__artists">
+          <% content.artists.each do |artist| %>
+            <li class="content-detail__description-item__artist">
+              <%= link_to artist.locale("name"), artist_path(artist) %><%= embedded_svg("svg/external.svg", class: 'is_external-svg') %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="content-detail__content">
+    <%== content.locale('description') %>
+  </div>
 </div>

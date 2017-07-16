@@ -1,0 +1,78 @@
+.is_border-top
+  border-top: 2px solid $base-color
+
+.is_border-none
+  border: none
+
+.is_addition
+  font-size: $text-font-size
+
+.is_artist-info
+  margin-top: 40px
+  font-size: $text-font-size
+
+.is_external-svg
+  width: 20px
+  margin-left: 7px
+  padding-bottom: 4px
+
+.is_title
+  margin-bottom: 4px
+  line-height: 23px
+
+.is_sub-title
+  font-size: $base-font-size - .2rem
+  margin-bottom: 2px
+  line-height: 20px
+  vertical-align: center
+  &_in-detail
+    margin-bottom: 10px
+
+.is_date
+  font-size: $base-font-size - .2rem
+  margin-bottom: 3px
+  &_in-detail
+    font-size: $text-font-size
+    margin-top: 20px
+    margin-bottom: 5px
+
+.is_content
+  font-size: $base-font-size - .2rem
+  line-height: 20px
+  vertical-align: center
+
+.is_no-shadow
+  &:after
+    content: none
+
+.is_none-padding-side
+  padding-left: 0
+  padding-right: 0
+
+.is_justify-start
+  justify-content: flex-start
+
+.is_font-size-text
+  font-size: $text-font-size
+
++media($phone)
+  .is_artist-border-double
+    position: relative
+    margin-bottom: 15px
+    padding-left: 0
+    padding-right: 0
+    &:before
+      content: ''
+      width: 100%
+      height: 30px
+      padding-top: 20px
+      border-top: 2px solid $base-color
+      position: absolute
+      top: -6px
+      left: 0
+
+  .is_artist-border
+    border-top: 2px solid $base-color
+
+  .is_artist-border-none
+    border: none

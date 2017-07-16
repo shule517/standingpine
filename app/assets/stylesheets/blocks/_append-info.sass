@@ -1,0 +1,25 @@
+.artist-name__items
+  +none-padding-margin
+  list-style-type: none
+  flex-direction: column
+  align-items: flex-start
+  justify-content: space-between
+  padding-top: 26px
+  margin-bottom: 50px
+  height: 65px
+
+.artist-name__item
+  &:last-child
+    margin-top: 3px
+
++media($ipad-pro)
+  .artist-name__items
+    padding-top: 24px
+    padding-left: 20px
+
++media($phone)
+  .artist-name__items
+    padding-left: 15px
+
+
+

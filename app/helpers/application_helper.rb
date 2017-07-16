@@ -30,6 +30,8 @@ module ApplicationHelper
       "NEWS"
     when "exhibitions"
       "EXHIBITION"
+    when "artists"
+      "ARTISTS"
     else
       "SUBTITLE IS EMPTY"
     end
@@ -67,6 +69,8 @@ module ApplicationHelper
       "article"
     when "exhibitions"
       "exhibition"
+    when "artists"
+      "artist"
     else
     end
   end

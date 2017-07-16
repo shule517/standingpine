@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :artists, only: [:index, :show]
   resources :exhibitions, only: [:index, :show]
   resources :articles, only: [:index, :show]
 
