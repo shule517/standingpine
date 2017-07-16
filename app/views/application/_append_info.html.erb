@@ -1,5 +1,9 @@
 <% if controller_name == 'artists' %>
-  <ul class="year-select__items">
+  <ul class="artist-name__items">
+    <% if controller.action_name == 'show' %>
+      <li class="artist-name__item"><%= @artist.name_en %></li>
+      <li class="artist-name__item is_font-size-text"><%= @artist.name_ja %></li>
+    <% end %>
   </ul>
 <% elsif controller.action_name == 'index' %>
   <ul class="year-select__items">
