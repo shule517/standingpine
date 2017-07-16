@@ -1,0 +1,39 @@
+<div class="content-detail__body is_border-top">
+  <div class="content-detail__description is_artist-border-double">
+    <ul class="content-detail__description-items">
+      <li class="content-detail__description-item is_title"><%= content.name_en %></li>
+      <li class="content-detail__description-item is_addition"><%= content.name_ja %></li>
+      <li class="content-detail__description-item is_artist-info">
+        <% if content.web_site.present? %>
+          <%= link_to "ARTIST PAGE", content.web_site %><%= embedded_svg("svg/external.svg", class: 'is_external-svg') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="content-detail__content is_border-none is_artist-border">
+    <%== content.locale('description') %>
+  </div>
+</div>
+<div class="content-detail__body">
+  <div class="content-detail__description is_border-top is_artist-border-double">
+    <ul class="content-detail__description-items">
+      <li class="content-detail__description-item is_title">biography</li>
+      <li class="content-detail__description-item is_addition">略歴</li>
+    </ul>
+  </div>
+  <div class="content-detail__content">
+    <%== content.locale('biography') %>
+  </div>
+</div>
+<div class="content-detail__body">
+  <div class="content-detail__description is_border-top is_artist-border-double">
+    <ul class="content-detail__description-items">
+      <li class="content-detail__description-item is_title">PAST EXHIBITION</li>
+      <li class="content-detail__description-item is_addition">過去の展覧会</li>
+    </ul>
+  </div>
+  <div class="content-detail__content is_none-padding-side is_artist-border-none">
+    <%= render 'blocks/split-block', { contents: @exhibitions, version: "into-2" } %>
+  </div>
+</div>
+<div class="is_artist-border is_artist-border-double"></div>

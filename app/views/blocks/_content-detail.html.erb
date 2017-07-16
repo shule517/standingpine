@@ -2,11 +2,9 @@
   <div class="content-detail__wrapper">
     <div class="content-detail__image">
       <div class="content-detail__image-cover">
-        <%= image_tag content.cover_image.url, class: 'content-detail__image-body' %>
+        <%= image_tag content.cover_image.url, class: 'content-detail__image-body' unless controller_name == 'artists' %>
       </div>
     </div>
-    <div class="content-detail__body">
-      <%= render "blocks/content-detail-#{page_location}", { content: content } %>
-    </div>
+    <%= render "blocks/content-detail-#{page_location}", { content: content } %>
   </div>
 </section>

@@ -1,2 +1,4 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<%= render 'blocks/split-block', { contents: @artist, artworks: @artworks, version: "info_none" } %>
+<div class="artist-detail__wrapper">
+  <%= render 'blocks/content-detail', { content: @artist } %>
+</div>

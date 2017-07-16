@@ -1,17 +1,22 @@
 <% @version = (local_assigns.has_key? :version) ? version: nil %>
+<% @artworks = (local_assigns.has_key? :artworks) ? artworks: nil %>
 <section class="split-block">
   <ul class="split-block__items">
-    <% if @version == "info_none" %>
-      <% contents.each do |content| %>
-        <% content.connections.includes(:artworks).each do |connection| %>
-          <% connection.artworks.each do |artwork| %>
-            <li class="split-block__item">
-              <div class="split-block__item-cover is_no-shadow">
-                <%= image_tag artwork.image.url, class: "split-block__item-image" %>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
+    <% if @version == "into-2" && controller_name == 'artists' %>
+      <% contents.each do |past| %>
+        <li class="split-block__item into-2">
+          <div class="split-block__item-cover is_no-shadow">
+            <%= link_to image_tag(past.cover_image.url, class: "split-block__item-image"), exhibition_path(past) %>
+          </div>
+        </li>
+      <% end %>
+    <% elsif @version == "info_none" %>
+      <% @artworks.each do |artwork| %>
+        <li class="split-block__item">
+          <div class="split-block__item-cover is_no-shadow">
+            <%= image_tag artwork.image.url, class: "split-block__item-image" %>
+          </div>
+        </li>
       <% end %>
     <% else %>
       <% contents.each do |content| %>
