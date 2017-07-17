@@ -32,6 +32,8 @@ module ApplicationHelper
       "EXHIBITION"
     when "artists"
       "ARTISTS"
+    when "galleries"
+      "GALLERY"
     else
       "SUBTITLE IS EMPTY"
     end
@@ -71,6 +73,8 @@ module ApplicationHelper
       "exhibition"
     when "artists"
       "artist"
+    when "galleries"
+      "gallery"
     else
     end
   end

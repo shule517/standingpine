@@ -4,12 +4,15 @@
   </div>
   <div class="global-footer__body">
     <div class="global-footer__body-info">
-      <ul class="global-footer__body-info-items">
-        <li class="global-footer__body-info-item"><%= t('view.address') %></li>
-        <li class="global-footer__body-info-item">Tel / Fax <%= t('view.tel') %></li>
-        <li class="global-footer__body-info-item">https://standingpine.jp | info@standingpine.jp</li>
-        <li class="global-footer__body-info-item">13:00 - 19:00 | <%= t('view.closed_information') %></li>
-      </ul>
+      <% if controller_name == 'galleries' %>
+      <% else %>
+        <ul class="global-footer__body-info-items">
+          <li class="global-footer__body-info-item"><%= t('view.address') %></li>
+          <li class="global-footer__body-info-item">Tel / Fax <%= t('view.tel') %></li>
+          <li class="global-footer__body-info-item">https://standingpine.jp | info@standingpine.jp</li>
+          <li class="global-footer__body-info-item">13:00 - 19:00 | <%= t('view.closed_information') %></li>
+        </ul>
+      <% end %>
     </div>
     <div class="global-footer__body-copyright">
       <small>&copy;STANDING PINE</small>

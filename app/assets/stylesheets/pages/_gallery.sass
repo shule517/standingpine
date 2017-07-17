@@ -1,0 +1,21 @@
+.gallery-detail
+  .global-footer__body-info-item
+    line-height: 25px
+    &:first-child
+      margin-bottom: 30px
+      display: flex
+      div
+        &:first-child
+          flex-shrink: 0
+          padding-right: 10px
+
++media($phone)
+  .gallery-detail
+    padding: 0 20px
+    .content-detail__body
+      margin-bottom: 0
+    .content-detail__description
+      +none-padding-margin
+    .content-detail__content
+      padding-right: 0
+      padding-left: 0

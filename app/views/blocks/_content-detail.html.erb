@@ -1,10 +1,11 @@
+<% @content = (local_assigns.has_key? :content) ? content: nil %>
 <section class="content-detail">
   <div class="content-detail__wrapper">
     <div class="content-detail__image">
       <div class="content-detail__image-cover">
-        <%= image_tag content.cover_image.url, class: 'content-detail__image-body' unless controller_name == 'artists' %>
+        <%= image_tag content.cover_image.url, class: 'content-detail__image-body' unless controller_name == 'artists' || controller_name == 'galleries' %>
       </div>
     </div>
-    <%= render "blocks/content-detail-#{page_location}", { content: content } %>
+    <%= render "blocks/content-detail-#{page_location}", { content: @content } %>
   </div>
 </section>

@@ -5,7 +5,7 @@
       <li class="artist-name__item is_font-size-text"><%= @artist.name_ja %></li>
     <% end %>
   </ul>
-<% elsif controller.action_name == 'index' %>
+<% elsif controller_name == 'articles' && controller.action_name == 'index' %>
   <ul class="year-select__items">
     <% @select_year.each do |p| %>
       <li class="year-select__item">
@@ -42,7 +42,7 @@
       <% end %>
     </li>
   </ul>
-<% else %>
+<% elsif controller_name == 'exhibitions' && controller.action_name == 'show' %>
   <ul class="year-select__items">
     <li class="year-select__item is_past">
     <%  if @exhibition_first == params[:id].to_i %>
@@ -51,5 +51,8 @@
       PAST EXHIBITION
     <% end %>
     </li>
+  </ul>
+<% else %>
+  <ul class="year-select__items">
   </ul>
 <% end %>
