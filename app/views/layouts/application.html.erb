@@ -11,5 +11,6 @@
       <%= yield %>
     </main>
     <%= render 'footer' %>
+    <%= javascript_include_tag '//maps.googleapis.com/maps/api/js?key=AIzaSyBwymJUdXFyXq9N0hpKeDQIlybgH1QtjLg&callback=initMap', async: true, defer: true %>
   </body>
 </html>

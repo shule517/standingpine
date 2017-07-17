@@ -11,3 +11,5 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require image_url
+//= require google_map-api
