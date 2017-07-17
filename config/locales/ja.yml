@@ -63,6 +63,7 @@ ja:
       exhibition:
         <<: *default
   view:
+    address: 〒460-0003 愛知県名古屋市中区錦2丁目5-24 えびすビル Part2 3F
     address_html: "<div>〒460-0003</div> <div>愛知県名古屋市中区錦2丁目5-24 えびすビル Part2 3F</div>"
     closed_information: 月・火・祝日休廊
     tel: 052 203 3930
