@@ -11,7 +11,8 @@ RSpec.describe ExhibitionsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      exhibition = create(:exhibition)
+      get :show, params: { id: exhibition }
       expect(response).to have_http_status(:success)
     end
   end
