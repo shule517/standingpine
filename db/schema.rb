@@ -86,8 +86,6 @@ ActiveRecord::Schema.define(version: 20170609111413) do
     t.string "addition_en"
     t.text "description_ja"
     t.text "description_en"
-    t.integer "article_id"
-    t.index ["article_id"], name: "index_exhibitions_on_article_id"
   end
 
   create_table "main_images", force: :cascade do |t|
