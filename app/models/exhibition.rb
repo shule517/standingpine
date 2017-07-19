@@ -9,8 +9,7 @@ class Exhibition < ApplicationRecord
   validates :cover_image, presence: true
 
   scope :started, -> { order('starting_on DESC') }
-  scope :started_year, -> { order('starting_on DESC').select('starting_on').map{ |i| i.starting_on.year }.uniq
- }
+  scope :started_year, -> { order('starting_on DESC').select('starting_on').map{ |i| i.starting_on.year }.uniq }
 
   def self.by_year(year)
     @year = year.to_i
