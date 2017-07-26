@@ -4,3 +4,8 @@ en:
     address_html: Yebisu bldg Part2,3rd floor, 2-5-24 Nishiki,Naka-ku,Nagoya-City,Aichi,460-0003,Japan
     closed_information: closed on Monday, Tuesday and National holidays
     tel: +81 52 203 3930
+    form:
+      description_html: "You can register to the e-mail magazine which will send gallery news occasionally.<br>Fill out the form below and click the SEND button."
+      email: E MAIL
+      first_name: FIRST NAME
+      last_name: LAST NAME

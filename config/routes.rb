@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'mail_news', to: 'mail_news#index'
+  post 'mail_news', to: 'mail_news#index'
+
   get 'gallery', to: 'galleries#index'
+
   resources :artists, only: [:index, :show]
   resources :exhibitions, only: [:index, :show]
   resources :articles, only: [:index, :show]

@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def root_page?
     controller_name == "home"
   end
@@ -7,14 +6,14 @@ module ApplicationHelper
   def locale_button(locale)
     if locale == "ja"
       if params[:locale].present?
-        link_to '',  url_for(controller: controller.controller_name, action: controller.action_name, locale: nil), class: "is-jp"
+        link_to "",  url_for(controller: controller.controller_name, action: controller.action_name, locale: nil), class: "is-jp"
       else
         content_tag :div, class: "is-jp is-active" do
         end
       end
     else
       if params[:locale] != locale
-        link_to  '',  url_for(controller: controller.controller_name, action: controller.action_name, locale: locale), class: "is-#{locale}"
+        link_to "",  url_for(controller: controller.controller_name, action: controller.action_name, locale: locale), class: "is-#{locale}"
       else
         content_tag :div, class: "is-#{locale} is-active" do
         end
@@ -34,13 +33,15 @@ module ApplicationHelper
       "ARTISTS"
     when "galleries"
       "GALLERY"
+    when "mail_news"
+      "MAIL NEWS"
     else
       "SUBTITLE IS EMPTY"
     end
   end
 
   def content_url(content)
-    if controller_name == 'home' || controller_name == 'articles'
+    if controller_name == "home" || controller_name == "articles"
       if content.link.present?
         content.link
       else
@@ -79,12 +80,12 @@ module ApplicationHelper
     end
   end
 
-  def embedded_svg filename, options={}
-    file = File.read(Rails.root.join('app', 'assets', 'images', filename))
+  def embedded_svg(filename, options = {})
+    file = File.read(Rails.root.join("app", "assets", "images", filename))
     doc = Nokogiri::HTML::DocumentFragment.parse file
-    svg = doc.at_css 'svg'
+    svg = doc.at_css "svg"
     if options[:class].present?
-      svg['class'] = options[:class]
+      svg["class"] = options[:class]
     end
     doc.to_html.html_safe
   end

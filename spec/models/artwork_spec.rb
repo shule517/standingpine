@@ -9,7 +9,7 @@ RSpec.describe Artwork, type: :model do
     expect(artwork).to be_valid
   end
 
-  context "titleの検証" do
+  describe "titleの検証" do
     it "title_jaとtitle_enがなければ無効" do
       artwork[:title_ja] = nil
       artwork[:title_en] = nil
@@ -37,7 +37,7 @@ RSpec.describe Artwork, type: :model do
     expect(artwork.image_file_name).not_to be_nil
   end
 
-  context "relationテスト" do
+  describe "relationテスト" do
     it "artistsとの関連があれば有効" do
       expect(artwork.artist).to eq artist
     end

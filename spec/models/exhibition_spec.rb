@@ -10,7 +10,7 @@ RSpec.describe Exhibition, type: :model do
     expect(exhibition).to be_valid
   end
 
-  context "titleの検証" do
+  describe "titleの検証" do
     it "title_jaとtitle_enがなければ無効" do
       exhibition[:title_ja] = nil
       exhibition[:title_en] = nil
@@ -28,7 +28,7 @@ RSpec.describe Exhibition, type: :model do
     end
   end
 
-  context "descriptionの検証" do
+  describe "descriptionの検証" do
     it "description_jaとdescription_enがなければ無効" do
       exhibition[:description_ja] = nil
       exhibition[:description_en] = nil
@@ -56,8 +56,7 @@ RSpec.describe Exhibition, type: :model do
     expect(exhibition).to have_attached_file(:cover_image)
   end
 
-  context "relationテスト" do
-
+  describe "relationテスト" do
     it "artistsとの関連があれば有効" do
       exhibition.artists << artists
       expect(exhibition.artists).to match_array artists

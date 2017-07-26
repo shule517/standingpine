@@ -21,6 +21,7 @@ gem "administrate", github: "thoughtbot/administrate"
 gem "wysiwyg-rails"
 gem "rails-i18n", "~> 5.0.0"
 gem "font-awesome-sass"
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem "sqlite3"
@@ -33,6 +34,7 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec"
   gem "spring-commands-rspec"
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -43,6 +45,7 @@ group :development do
   gem "guard-livereload", "~> 2.5", require: false
   gem "rb-fsevent", "0.9.8"
   gem "bullet"
+  gem "foreman"
 end
 
 group :test do

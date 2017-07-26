@@ -1,0 +1,25 @@
+<div class="mail-news">
+  <p class="mail-news__description">
+    <%= t('view.form.description_html') %>
+  </p>
+
+  <ul class="mail-news__items">
+    <%= form_with url: '/mail_news' do |f| %>
+      <li class="mail-news__item">
+        <%= f.label :email, t('view.form.email'), class: 'mail-news__item-form-label' %>
+        <%= f.text_field :email, class: 'mail-news__item-form-text' %>
+      </li>
+      <li class="mail-news__item">
+        <%= f.label :first_name, t('view.form.first_name'), class: 'mail-news__item-form-label' %>
+        <%= f.text_field :first_name, class: 'mail-news__item-form-text' %>
+      </li>
+      <li class="mail-news__item">
+        <%= f.label :last_name, t('view.form.last_name'), class: 'mail-news__item-form-label' %>
+        <%= f.text_field :last_name, class: 'mail-news__item-form-text' %>
+      </li>
+      <li class="mail-news__item">
+        <%= f.submit 'SEND', class: 'mail-news__item-form-submit' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

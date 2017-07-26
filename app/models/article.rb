@@ -4,9 +4,9 @@ class Article < ApplicationRecord
     title.validates :title_en, presence: true
   end
 
-  scope :published, -> { order('published_at DESC') }
-  scope :published_limit, -> { order('published_at DESC').limit(2) }
-  scope :published_year, -> { order('published_at DESC').select('published_at').map{ |i| i.published_at.year }.uniq }
+  scope :published, -> { order("published_at DESC") }
+  scope :published_limit, -> { order("published_at DESC").limit(2) }
+  scope :published_year, -> { order("published_at DESC").select("published_at").map { |i| i.published_at.year }.uniq }
 
   def self.by_year(year)
     @year = year.to_i

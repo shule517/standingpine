@@ -9,7 +9,7 @@ RSpec.describe Artist, type: :model do
     expect(artist).to be_valid
   end
 
-  context "nameの検証" do
+  describe "nameの検証" do
     it "name_jaとname_enがなければ無効" do
       artist[:name_ja] = nil
       artist[:name_en] = nil
@@ -27,7 +27,7 @@ RSpec.describe Artist, type: :model do
     end
   end
 
-  context "descriptionの検証" do
+  describe "descriptionの検証" do
     it "description_jaとdescription_enがなければ無効" do
       artist[:description_ja] = nil
       artist[:description_en] = nil
@@ -45,7 +45,7 @@ RSpec.describe Artist, type: :model do
     end
   end
 
-  context "biographyの検証" do
+  describe "biographyの検証" do
     it "biography_jaとbiography_enがなければ無効" do
       artist[:biography_ja] = nil
       artist[:biography_en] = nil
@@ -87,7 +87,7 @@ RSpec.describe Artist, type: :model do
     expect(artist.regular).not_to eq true
   end
 
-  context "relationテスト" do
+  describe "relationテスト" do
     it "artworkの要素があれば有効" do
       expect(artist.artworks).to match_array artworks
     end

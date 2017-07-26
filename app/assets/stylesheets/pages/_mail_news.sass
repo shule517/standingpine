@@ -1,0 +1,97 @@
+.mail-news
+  width: 1024px
+  margin: 0 auto
+  padding: 0 20px
+  position: relative
+
+.mail-news__description
+  font-size: $text-font-size
+  position: absolute
+  top: -120px
+  left: 165px
+
+.mail-news__items
+  +none-padding-margin
+  list-style-type: none
+  font-size: $text-font-size
+  margin-top: 20px
+  margin-bottom: 100px
+
+.mail-news__item
+  position: relative
+  display: flex
+  justify-content: center
+  margin-bottom: 50px
+
+.mail-news__item-form-label
+  position: absolute
+  top: 0
+  left: 60px
+  line-height: 65px
+
+.mail-news__item-form-text
+  width: 700px
+  height: 65px
+  border: 8px solid $base-color
+  padding-left: 20px
+  font-size: $large-font-size
+  &:focus
+    outline: 0
+    transition: 0.5s
+    border-color: $accent-color
+
+.mail-news__item-form-submit
+  width: 700px
+  height: 65px
+  border: 8px solid $base-color
+  background-color: $base-color
+  color: $reversal-color
+  letter-spacing: .2rem
+  font-size: $large-font-size
+  font-family: $font-family
+  padding-top: 7px
+  &:hover
+    outline: 0
+    transition: 0.5s
+    border-color: $accent-color
+    background-color: $accent-color
+
++media($ipad-pro)
+  .mail-news__description
+    font-size: $text-font-size
+    position: static
+    max-width: 700px
+    margin: 0 auto
+    margin-bottom: 50px
+
++media($tablet)
+  .mail-news
+    width: 100%
+  .mail-news__item
+    &:last-of-type
+      &:before
+        content: ''
+        width: 80px
+        flex-shrink: 0
+  .mail-news__item-form-label
+    width: 80px
+    flex-shrink: 0
+    position: static
+
++media($mobile)
+  .mail-news__item
+    align-items: center
+    flex-direction: column
+    margin-bottom: 40px
+    &:last-of-type
+      padding-top: 30px
+      justify-content: flex-end
+  .mail-news__item-form-label
+    width: auto
+    line-height: 30px
+  .mail-news
+    padding: 0 20px
+  .mail-news__item-form-text
+    width: 100%
+  .mail-news__item-form-submit
+    width: 100%

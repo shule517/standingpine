@@ -7,7 +7,7 @@ RSpec.describe Article, type: :model do
     expect(article).to be_valid
   end
 
-  context "titleの検証" do
+  describe "titleの検証" do
     it "title_jaとtitle_enがなければ無効" do
       article[:title_ja] = nil
       article[:title_en] = nil

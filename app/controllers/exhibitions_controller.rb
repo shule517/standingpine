@@ -9,6 +9,6 @@ class ExhibitionsController < ApplicationController
     @exhibition_first = Exhibition.started.first.id
     @exhibition = Exhibition.find(params[:id])
     @artists = @exhibition.artists
-    @artworks = @exhibition.connections.map{ |connection| connection.artist.artworks.map{ |artwork| artwork }}.flatten
+    @artworks = @exhibition.connections.map { |connection| connection.artist.artworks }.flatten
   end
 end
