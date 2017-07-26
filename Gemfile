@@ -24,7 +24,7 @@ gem "font-awesome-sass"
 gem 'sendgrid-ruby'
 
 group :development, :test do
-  gem "sqlite3"
+  gem "sqlite3", require: false
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-byebug"
   gem "pry-rails"
