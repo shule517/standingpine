@@ -10,7 +10,10 @@ FactoryGirl.define do
     web_site { Faker::Internet.url }
 
     trait :attached do
-      cover_image { fixture_file_upload("#{Rails.root}/spec/fixtures/dummy.jpg") }
+      cover_image_file_name { 'dummy.jpg' }
+      cover_image_content_type { 'image/jpg' }
+      cover_image_file_size { 123 }
+      cover_image_updated_at { Time.now }
     end
 
     trait :non_regular do

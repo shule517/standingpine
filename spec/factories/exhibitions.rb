@@ -5,7 +5,10 @@ FactoryGirl.define do
     content_in_en
     starting_on "2017-05-17 16:54:14"
     ending_on "2017-05-17 16:54:14"
-    cover_image { fixture_file_upload("#{Rails.root}/spec/fixtures/dummy.jpg") }
+    cover_image_file_name { 'dummy.jpg' }
+    cover_image_content_type { 'image/jpg' }
+    cover_image_file_size { 123 }
+    cover_image_updated_at { Time.now }
 
     trait :content_in_ja do
       title_ja { Faker::Lorem.sentence }

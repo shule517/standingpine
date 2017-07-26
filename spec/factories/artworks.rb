@@ -6,7 +6,10 @@ FactoryGirl.define do
     description_en { Faker::Lorem.paragraph }
 
     trait :attached do
-      image { fixture_file_upload("#{Rails.root}/spec/fixtures/dummy.jpg") }
+      image_file_name { 'dummy.jpg' }
+      image_content_type { 'image/jpg' }
+      image_file_size { 123 }
+      image_updated_at { Time.now }
     end
   end
 end
