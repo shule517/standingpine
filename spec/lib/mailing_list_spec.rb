@@ -25,12 +25,12 @@ RSpec.describe MailingList do
     # end
   end
 
-  # describe '#contact_list' do
-  #   context '0件の場合' do
-  #     it '取得結果が空であること' do
-  #       expect(mailing_list.contact_list).to be_empty
-  #     end
-  #   end
+  describe '#contact_list' do
+    context '0件の場合' do
+      it '取得結果が空であること' do
+        expect(mailing_list.contact_list).to be_empty
+      end
+    end
 
   #   context '1件の場合' do
   #     it '1件取得できること' do
@@ -50,7 +50,7 @@ RSpec.describe MailingList do
   #       expect(mailing_list.contact_list?).to eq mails
   #     end
   #   end
-  # end
+  end
 
   # describe '#add_contact' do
   #   context '新規追加の場合' do
