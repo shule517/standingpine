@@ -35,6 +35,8 @@ group :development, :test do
   gem "guard-rspec"
   gem "spring-commands-rspec"
   gem 'dotenv-rails'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do

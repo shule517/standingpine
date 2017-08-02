@@ -68,4 +68,28 @@ RSpec.configure do |config|
   # fixtureのパスを指定
   # ファイルアップロードテストする際のアップするファイルパスをfixtures以下から省略して指定可能
   config.fixture_path = "#{Rails.root}/spec/fixtures"
+
+  # VCRの設定
+  VCR.configure do |c|
+    c.cassette_library_dir = 'spec/vcr'
+    c.hook_into :webmock
+    c.allow_http_connections_when_no_cassette = false
+    Rails.application.secrets.each do |k, v|
+      next unless v.is_a? String
+      c.filter_sensitive_data("<#{k.upcase}>") { v }
+    end
+  end
+
+  config.around(:each, type: :request) do |example|
+    vcr_cassette = example.metadata[:vcr]
+    if vcr_cassette
+      description = example.metadata[:file_path].gsub('./spec/', '').gsub('_spec.rb', '')
+      cassette = "#{description}/#{vcr_cassette}"
+      VCR.use_cassette cassette do
+        example.run
+      end
+    else
+      example.run
+    end
+  end
 end

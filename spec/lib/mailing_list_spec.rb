@@ -1,8 +1,8 @@
 require "rails_helper"
 
-RSpec.describe MailingList do
+RSpec.describe MailingList, type: :request do
   let(:mailing_list) { MailingList.new }
-  let(:email) { Faker::Internet.email }
+  let(:email) { 'shule517@gmail.com' }
 
   before :each do
     mailing_list.contact_list.each do |contact|
@@ -11,7 +11,7 @@ RSpec.describe MailingList do
   end
 
   describe '#contact_present?' do
-    context 'メールドアレスが登録されていない場合' do
+    context 'メールドアレスが登録されていない場合', vcr: '#contact_present?-not_exists' do
       it 'falseを返すこと' do
         expect(mailing_list.contact_present?(email)).to be_falsey
       end
@@ -26,7 +26,7 @@ RSpec.describe MailingList do
   end
 
   describe '#contact_list' do
-    context '0件の場合' do
+    context '0件の場合', vcr: '#contact_list-empty' do
       it '取得結果が空であること' do
         expect(mailing_list.contact_list).to be_empty
       end
