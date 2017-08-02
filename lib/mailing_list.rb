@@ -6,56 +6,47 @@ class MailingList
 
   def contact_list
     response = call_recipients.get().body
-    contact_lists = recipients(response)
-    contact_lists.map{ |i| i[:email] }
+    recipients = to_recipients(response)
+    recipients.map{ |recipient| recipient[:email] }
   end
 
-  def contact_present?(email)
-    params = set_email_to_json(email)
-    response = call_recipients.search.get(query_params: params).body
-    if recipients(response).count == 0
-      false
-    else
-      contact_mail = recipients(response)[0][:email]
-      email == contact_mail
-    end
+  def contact_exists?(email)
+    recipients = search(email: email)
+    recipients.any?{ |recipient| recipient[:email] == email }
   end
 
   def add_contact(email)
-    if self.contact_present?(email)
-      false
-    else
-      params = set_email_to_json(email)
-      response = call_recipients.post(request_body: [] << params).body
-      JSON.parse(response, symbolize_names: true)[:error_count] == 0
-    end
+    return false if contact_exists?(email)
+    response = post(email: email)
+    response[:error_count].zero?
   end
 
   def remove_contact(email)
-    unless self.contact_present?(email)
-      false
-    else
-      params = set_email_to_json(email)
-      response = call_recipients.search.get(query_params: params).body
-      contact_id = recipients(response)[0][:id]
-      call_recipients._(contact_id).delete()
-      self.contact_present?(email) == false
-    end
+    return false unless contact_exists?(email)
+    recipients = search(email: email)
+    contact_id = recipients.first[:id]
+    call_recipients._(contact_id).delete()
+    !contact_exists?(email)
   end
 
   private
 
-    def recipients(body)
+    def search(params)
+      response = call_recipients.search.get(query_params: params).body
+      to_recipients(response)
+    end
+
+    def post(params)
+      response = call_recipients.post(request_body: params).body
+      JSON.parse(response, symbolize_names: true)
+    end
+
+    def to_recipients(body)
       values = JSON.parse(body, symbolize_names: true)
-      values[:recipients] if values.keys == [:recipients]
+      values[:recipients] if values.keys.include?(:recipients)
     end
 
     def call_recipients
       @sg.client.contactdb.recipients
-    end
-
-    def set_email_to_json(email)
-      json = JSON.generate({"email" => email})
-      JSON.parse(json)
     end
 end

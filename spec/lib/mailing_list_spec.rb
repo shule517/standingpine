@@ -10,17 +10,17 @@ RSpec.describe MailingList, type: :request do
     end
   end
 
-  describe '#contact_present?' do
-    context 'メールドアレスが登録されていない場合', vcr: '#contact_present?-empty' do
+  describe '#contact_exists?' do
+    context 'メールドアレスが登録されていない場合', vcr: '#contact_exists?-empty' do
       it 'falseを返すこと' do
-        expect(mailing_list.contact_present?(email)).to eq false
+        expect(mailing_list.contact_exists?(email)).to eq false
       end
     end
 
-    context 'メールドアレスが登録されている場合', vcr: '#contact_present?-exists'  do
+    context 'メールドアレスが登録されている場合', vcr: '#contact_exists?-exists'  do
       it 'trueを返すこと' do
         expect(mailing_list.add_contact(email)).to eq true
-        expect(mailing_list.contact_present?(email)).to eq true
+        expect(mailing_list.contact_exists?(email)).to eq true
       end
     end
   end
@@ -56,7 +56,7 @@ RSpec.describe MailingList, type: :request do
     context '新規追加の場合', vcr: '#add_contact-new' do
       it 'メールアドレスを追加できること' do
         expect(mailing_list.add_contact(email)).to eq true
-        expect(mailing_list.contact_present?(email)).to eq true
+        expect(mailing_list.contact_exists?(email)).to eq true
       end
     end
 
@@ -64,7 +64,7 @@ RSpec.describe MailingList, type: :request do
       it '操作しないこと' do
         expect(mailing_list.add_contact(email)).to eq true # 新規登録
         expect(mailing_list.add_contact(email)).to eq false # 既に登録済み
-        expect(mailing_list.contact_present?(email)).to eq true
+        expect(mailing_list.contact_exists?(email)).to eq true
       end
     end
   end
@@ -74,14 +74,14 @@ RSpec.describe MailingList, type: :request do
       it 'メールアドレスを削除できること' do
         expect(mailing_list.add_contact(email)).to eq true # 登録成功
         expect(mailing_list.remove_contact(email)).to eq true # 削除成功
-        expect(mailing_list.contact_present?(email)).to eq false
+        expect(mailing_list.contact_exists?(email)).to eq false
       end
     end
 
     context '削除対象がない場合', vcr: '#remove_contact-deleted' do
       it '操作しないこと' do
         expect(mailing_list.remove_contact(email)).to eq false # 削除対象なし
-        expect(mailing_list.contact_present?(email)).to eq false
+        expect(mailing_list.contact_exists?(email)).to eq false
       end
     end
   end
